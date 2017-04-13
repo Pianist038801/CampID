@@ -148,7 +148,7 @@ const CommonWidgets = {
   {
     var _src = {uri: imgUri}
     if(!isNaN(imgUri))
-      _src = imgUri //require('Avatar')
+      _src = imgUri //require('Avatar')1
     return (
       <TouchableOpacity onPress={onPress}>
         <Image
