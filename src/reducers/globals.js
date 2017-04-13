@@ -1,12 +1,11 @@
 import Immutable from 'seamless-immutable';
 import { createReducer } from 'reduxsauce';
 import Types from '@actions/actionTypes';
-import {Images} from '@theme/'
 
 export const initialState = Immutable({
   homeTab: 'AN10NA',
   spinnerVisible: false,
-  avatarUri: 3
+  avatarUri: 3,
 });
 const homeTab = (state, action) => ({
   ...state,
@@ -18,11 +17,11 @@ const spinnerVisible = (state, action) => ({
 });
 const setAvatarUri = (state, action) => ({
   ...state,
-  avatarUri: action.avatarUri
-})
+  avatarUri: action.avatarUri,
+});
 const actionHandlers = {
   [Types.SET_HOME_TAB]: homeTab,
   [Types.SET_SPINNER_VISIBLE]: spinnerVisible,
-  [Types.SET_AVATAR_URI]: setAvatarUri
+  [Types.SET_AVATAR_URI]: setAvatarUri,
 };
 export default createReducer(initialState, actionHandlers);

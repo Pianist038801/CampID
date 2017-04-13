@@ -25,10 +25,10 @@ const CommonWidgets = {
           barStyle={'light-content'}
           translucent />
       :
-      <StatusBar
+        <StatusBar
           backgroundColor={color}
           barStyle={'light-content'}
-          translucent/>
+          translucent />
     );
   },
 
@@ -47,17 +47,15 @@ const CommonWidgets = {
     );
   },
 
-  renderDivider(color)
-  {
+  renderDivider() {
     return (
-      <View style={{ height: 2, width: Metrics.screenWidth, backgroundColor: Colors.textSecondary }}>
-      </View>
-    )
+      <View style={{ height: 2, width: Metrics.screenWidth, backgroundColor: Colors.textSecondary }} />
+    );
   },
 
   renderSpacer(count) {
     return (
-      <View style={{ height: (Metrics.screenHeight * count / 1135.0)}} />
+      <View style={{ height: (Metrics.screenHeight * (count / 1135.0)) }} />
     );
   },
 
@@ -73,7 +71,7 @@ const CommonWidgets = {
     );
   },
 
-  renderMaterialButton(text, color = Colors.brandPrimary, onPress){
+  renderMaterialButton(text, color = Colors.brandPrimary, onPress) {
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={Styles.button} backgroundColor={color} borderRadius={7}>
@@ -119,42 +117,36 @@ const CommonWidgets = {
     );
   },
 
-  renderBigText(text)
-  {
-    return(
+  renderBigText(text) {
+    return (
       <Text style={[Fonts.style.h3, Styles.txtLeftMargin]}>
         {text}
       </Text>
-    )
+    );
   },
-  renderText(style, text)
-  { 
-      return(
+  renderText(style, text) {
+    return (
       <Text style={style}>
         {text}
       </Text>
-    )
+    );
   },
-  renderTextWithMargin(style, text)
-  { 
-      return(
-      <Text style={[style, {marginHorizontal: Metrics.textLeftMargin}]}>
+  renderTextWithMargin(style, text) {
+    return (
+      <Text style={[style, { marginHorizontal: Metrics.textLeftMargin }]}>
         {text}
       </Text>
-    )
+    );
   },
 
-  renderAvatar(imgUri, onPress)
-  {
-    var _src = {uri: imgUri}
-    if(!isNaN(imgUri))
-      _src = imgUri //require('Avatar')1
+  renderAvatar(imgUri, onPress) {
+    let _src = { uri: imgUri };
+    if (!isNaN(imgUri)) { _src = imgUri; } // require('Avatar')1
     return (
       <TouchableOpacity onPress={onPress}>
         <Image
-          style={{width: 100, height: 100, borderRadius: 50, borderWidth: 5, borderColor: '#F00' }}
+          style={styles.imgAvatar}
           source={_src} />
-            {/*<Image style = {styles.imgInnerAvatar} source={_src}>*/}
       </TouchableOpacity>
     );
   },
@@ -170,19 +162,19 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
-  
-  renderImgBtn(onPress, style,img){
+
+  renderImgBtn(onPress, style, img) {
     return (
       <TouchableOpacity
         style={{ paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
         onPress={onPress} >
         <View>
-          <Image style={[{width: Metrics._real(90), height: Metrics._real(90), resizeMode: 'stretch'},style]} source={img}/>
+          <Image style={[{ width: Metrics._real(90), height: Metrics._real(90), resizeMode: 'stretch' }, style]} source={img} />
         </View>
       </TouchableOpacity>
     );
   },
-  
+
   renderFloatButton(onPress) {
     return (
       <MKButton
@@ -223,10 +215,10 @@ const CommonWidgets = {
         style={Styles.listItemContainer}
         backgroundColor={Colors.backgroundSecondary}
         onPress={onPress}>
-        
+
         <View style={Styles.horzCenter}>
           <View style={[Styles.center, { flex: 3 }]}>
-           {item.isTop10 ? 
+            {item.isTop10 ?
               this.renderApple(0, 'big') : this.renderApple(2, 'big')}
           </View>
           <View style={{ flex: 12 }}>

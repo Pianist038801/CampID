@@ -7,7 +7,6 @@ const type = {
   light: 'TitilliumWeb-Light',
   bold: 'TitilliumWeb-Bold',
   semibold: 'TitilliumWeb-SemiBold',
-  
 };
 
 /*const size = {

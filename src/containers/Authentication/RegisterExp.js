@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import {
-  Text,
-  TextInput,
   View,
-  Platform,
-  TouchableOpacity,
+  Platform, 
   Image,
-  Alert
+  Alert,
 } from 'react-native';
 
 import { connect } from 'react-redux';
@@ -20,6 +17,7 @@ import { MKButton } from 'react-native-material-kit';
 import NavigationBar from 'react-native-navbar';
 
 import { replaceRoute, popRoute } from '@actions/route';
+import { setAvatarUri } from '@actions/globals';
 import CommonWidgets from '@components/CommonWidgets';
 import ActionSheet from '@components/ActionSheet/';
 import { Metrics, Styles, Images, Colors, Fonts } from '@theme/';
@@ -27,7 +25,7 @@ import Utils from '@src/utils';
 import Constants from '@src/constants';
 import styles from './styles';
 
-class Register extends Component {
+class RegisterExp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,9 +84,9 @@ class Register extends Component {
       }
       ImageResizer.createResizedImage(source.uri, 400, 300, 'JPEG', 80)
         .then((resizedImageUri) => {
-          this.setState({
-            avatarUri: resizedImageUri,
-          });
+          this.props.setAvatarUri(resizedImageUri);
+        }).catch((err) => {
+          console.log(err);
         }).catch((err) => {
           console.log(err);
         });
@@ -122,7 +120,7 @@ class Register extends Component {
               
             </View>
             <View style={[{flex: 25},Styles.center]}>
-              {CommonWidgets.renderAvatar()}
+              {CommonWidgets.renderAvatar(this.props.globals.avatarUri, () => this.showActionSheetMenu())}
             </View>
             <View style={{flex: 14, flexDirection: 'column'}}>
               <View style={[{flex:1,flexDirection: 'row'},Styles.center]}> 
@@ -159,7 +157,7 @@ class Register extends Component {
   }
 }
 
-Register.propTypes = {
+RegisterExp.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
   popRoute: React.PropTypes.func.isRequired
@@ -170,11 +168,13 @@ function mapDispatchToProps(dispatch) {
     dispatch,
     popRoute: ()=>dispatch(popRoute()),
     replaceRoute: route => dispatch(replaceRoute(route)),
+    setAvatarUri: avatarUri => dispatch(setAvatarUri(avatarUri)),
   };
 }
 
 function mapStateToProps(state) {
-  return { };
+  const globals = state.get('globals');
+  return { globals };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterExp);

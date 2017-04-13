@@ -60,7 +60,7 @@ export default class Spinner extends React.Component {
     textContent: React.PropTypes.string,
     color: React.PropTypes.string,
     size: React.PropTypes.oneOf(SIZES),
-    overlayColor: React.PropTypes.string
+    overlayColor: React.PropTypes.string,
   };
 
   static defaultProps = {

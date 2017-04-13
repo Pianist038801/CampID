@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
 import {
-  Text,
-  TextInput,
   View,
   Platform,
-  TouchableOpacity,
   Image,
-  Alert
+  Alert,
 } from 'react-native';
 
 import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import I18n from 'react-native-i18n';
 import ImagePicker from 'react-native-image-picker';
 import ImageResizer from 'react-native-image-resizer';
-import { MKButton } from 'react-native-material-kit';
 
 import NavigationBar from 'react-native-navbar';
 
 import { replaceRoute, popRoute } from '@actions/route';
+import { setAvatarUri } from '@actions/globals';
 import CommonWidgets from '@components/CommonWidgets';
 import ActionSheet from '@components/ActionSheet/';
-import { Metrics, Styles, Images, Colors, Fonts } from '@theme/';
+import { Metrics, Styles, Images, Colors } from '@theme/';
 import Utils from '@src/utils';
 import Constants from '@src/constants';
-import styles from './styles';
 
 class Register extends Component {
   constructor(props) {
@@ -34,10 +29,10 @@ class Register extends Component {
       athleteFocus: false,
       coachFocus: false,
       administratorFocus: false,
-      parentFocus: false
+      parentFocus: false,
     };
   }
-  
+
   onBtnFocus(value) {
     this.setState({ administratorFocus: false, parentFocus: false, athleteFocus: false, coachFocus: false });
     this.setState({ [`${value}Focus`]: true });
@@ -88,14 +83,13 @@ class Register extends Component {
           this.props.setAvatarUri(resizedImageUri);
         }).catch((err) => {
           console.log(err);
+        }).catch((err) => {
+          console.log(err);
         });
     }
   }
-  /*source={Images.bkgLogin}*/
+
   render() {
-    Alert.alert('3');
-    if(this.props.globals.avatarUri != 3)
-    Alert.alert(this.props.globals.avatarUri)
     return (
       <KeyboardAwareScrollView
         alwaysBounceVertical={false}
@@ -106,52 +100,52 @@ class Register extends Component {
           <NavigationBar
             style={Styles.navBarStyle}
             title={CommonWidgets.renderNavBarHeader('Christina Smith')}
-            tintColor={Colors.txtTitle} 
-            leftButton={CommonWidgets.renderNavBarLeftButton(()=>this.props.replaceRoute('login'))}/>
-          
+            tintColor={Colors.txtTitle}
+            leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.replaceRoute('login'))}  />
+
           <Image
             resizeMode={'stretch'}
             style={Styles.navbarFullScreen}
-            source = {Images.imgSignupBg}>
-          
-          {/* -----Avatar---- */}
-          
-            <View style={{flex: 26}}> 
+            source={Images.imgSignupBg}>
+
+            {/* -----Avatar---- */}
+
+            <View style={{ flex: 26 }}>
               {CommonWidgets.renderSpacer(160)}
-              {CommonWidgets.renderBigText(I18n.t('WELCOME'))} 
-              
+              {CommonWidgets.renderBigText(I18n.t('WELCOME'))}
+
             </View>
-            <View style={[{flex: 25},Styles.center]}>
-              
-              {CommonWidgets.renderAvatar(this.props.globals.avatarUri,()=>this.showActionSheetMenu())}
+            <View style={[{ flex: 25 }, Styles.center]}>
+
+              {CommonWidgets.renderAvatar(this.props.globals.avatarUri, () => this.showActionSheetMenu())}
             </View>
-            <View style={{flex: 14, flexDirection: 'column'}}>
-              <View style={[{flex:1,flexDirection: 'row'},Styles.center]}> 
-                {CommonWidgets.renderNormalButton(I18n.t('ATHLETE'),Utils.getNormalBtnBackcolor(this.state.athleteFocus),()=>this.onBtnFocus('athlete'))}
-                {CommonWidgets.renderNormalButton(I18n.t('COACH'),Utils.getNormalBtnBackcolor(this.state.coachFocus),()=>this.onBtnFocus('coach'))}
+            <View style={{ flex: 14, flexDirection: 'column' }}>
+              <View style={[{ flex: 1, flexDirection: 'row' }, Styles.center]}>
+                {CommonWidgets.renderNormalButton(I18n.t('ATHLETE'), Utils.getNormalBtnBackcolor(this.state.athleteFocus), () => this.onBtnFocus('athlete'))}
+                {CommonWidgets.renderNormalButton(I18n.t('COACH'), Utils.getNormalBtnBackcolor(this.state.coachFocus), () => this.onBtnFocus('coach'))}
               </View>
-               <View style={[{flex:1,flexDirection: 'row'},Styles.center]}> 
-                {CommonWidgets.renderNormalButton(I18n.t('ADMINISTRATOR'),Utils.getNormalBtnBackcolor(this.state.administratorFocus),()=>this.onBtnFocus('administrator'))}
-                {CommonWidgets.renderNormalButton(I18n.t('PARENT'),Utils.getNormalBtnBackcolor(this.state.parentFocus),()=>this.onBtnFocus('parent'))}
-              </View>
-            </View>
-            <View style={{flex: 26}}></View>
-            <View style={{flex: 9, flexDirection: 'row'}}>
-              <View style={{flex:1}}>
-                {CommonWidgets.renderImgBtn(()=>this.props.replaceRoute('login'), {left: Metrics.bottomBtnMargin},Images.imgLeftBtn)}
-              </View>
-              <View style={{flex:1, alignItems:'flex-end'}} >
-                {CommonWidgets.renderImgBtn(()=>this.props.replaceRoute('registerSkill'), {marginRight: Metrics.bottomBtnMargin},Images.imgRightBtn)}
+              <View style={[{ flex: 1, flexDirection: 'row' }, Styles.center]}>
+                {CommonWidgets.renderNormalButton(I18n.t('ADMINISTRATOR'), Utils.getNormalBtnBackcolor(this.state.administratorFocus), () => this.onBtnFocus('administrator'))}
+                {CommonWidgets.renderNormalButton(I18n.t('PARENT'), Utils.getNormalBtnBackcolor(this.state.parentFocus), () => this.onBtnFocus('parent'))}
               </View>
             </View>
-            <View style={{flex: 5}}></View>
-        </Image>
-        <ActionSheet
+            <View style={{ flex: 26 }} />
+            <View style={{ flex: 9, flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}>
+                {CommonWidgets.renderImgBtn(() => this.props.replaceRoute('login'), { left: Metrics.bottomBtnMargin }, Images.imgLeftBtn)}
+              </View>
+              <View style={{ flex: 1, alignItems: 'flex-end' }} >
+                {CommonWidgets.renderImgBtn(() => this.props.replaceRoute('registerSkill'), { marginRight: Metrics.bottomBtnMargin }, Images.imgRightBtn)}
+              </View>
+            </View>
+            <View style={{ flex: 5 }} />
+          </Image>
+          <ActionSheet
             ref={(as) => { this.ActionSheet = as; }}
             options={Constants.IP_BUTTONS}
             cancelButtonIndex={Constants.IP_BUTTONS.length - 1}
             onPress={this.onActionSheetMenu.bind(this)}
-            tintColor={Colors.textPrimary}/>
+            tintColor={Colors.textPrimary} />
         </View>
       </KeyboardAwareScrollView>
     );
@@ -161,15 +155,15 @@ class Register extends Component {
 Register.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
-  popRoute: React.PropTypes.func.isRequired
+  popRoute: React.PropTypes.func.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    popRoute: ()=>dispatch(popRoute()),
+    popRoute: () => dispatch(popRoute()),
     replaceRoute: route => dispatch(replaceRoute(route)),
-    setAvatarUri: avatarUri => dispatch(setAvatarUri(avatarUri))
+    setAvatarUri: avatarUri => dispatch(setAvatarUri(avatarUri)),
   };
 }
 

@@ -6,9 +6,10 @@ export default StyleSheet.create({
     width: Metrics.avatarSize,
     height: Metrics.avatarSize,
     borderRadius: Metrics.avatarSize / 2,
-    backgroundColor: Colors.brandPrimary,
+    borderColor: Colors.brandPrimary,
     alignItems: 'center',
-    justifyContent: 'center'
+    borderWidth: Metrics.avatarSize / 8.0,
+    justifyContent: 'center',
   },
   imgInnerAvatar:
   {

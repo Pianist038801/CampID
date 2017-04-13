@@ -16,7 +16,7 @@ const Utils = {
   getTextInputBorderColor(state) {
     return state ? Colors.borderFocused : Colors.borderSecondary;
   },
-  getNormalBtnBackcolor(state){
+  getNormalBtnBackcolor(state) {
     return state ? Colors.brandPrimary : Colors.btnDisabled;
   },
   getFieldInputBorderColor(state) {

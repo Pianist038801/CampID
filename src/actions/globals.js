@@ -5,4 +5,4 @@ export const setHomeTab = homeTab =>
 export const setSpinnerVisible = spinnerVisible =>
   ({ type: Types.SET_SPINNER_VISIBLE, spinnerVisible });
 export const setAvatarUri = avatarUri =>
-  ({type: Types.SET_AVATAR_URI, avatarUri})
+  ({ type: Types.SET_AVATAR_URI, avatarUri });
