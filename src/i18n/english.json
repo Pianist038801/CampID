@@ -1,0 +1,52 @@
+{
+   "APP_NAME": "StarterApp",
+   "WELCOME": "WELCOME",
+   "UPLOAD_PHOTO": "UPLOAD YOUR PHOTO",
+   "USERNAME": "Username", 
+   "PASSWORD": "Password",
+   "CREATE_PASSWORD": "CREATE PASSWORD",
+   "CONFIRM_PASSWORD": "CONFIRM PASSWORD",
+   "FORGOT_PASSWORD": "FORGOT PASSWORD?",
+   "LOGIN": "Login",
+   "CREATE_ACCOUNT": "CREATE ACCOUNT",
+   "CONNECT_FACEBOOK": "CONNECT WITH FACEBOOK",
+   "RESET_PASSWORD": "RESET PASSWORD",
+   "STILL_DONT_HAVE": "Still don't have an account?",
+   "REGISTER_NOW": "Register now!",
+   "BY_CREATING": "By creating your account you agree with our",
+   "TERMS_POLICY": "Terms and Policy",
+   "FORGOT_YOUR": "Forgot your SportsID username or login?",
+   "RESET_THROUGH_WEB": "Reset Through Web Application",
+   "RESET_THROUGH_MOBILE": "Reset Through SportsID Mobile App",
+   "DONOT_HAVE_ACCOUNT": "Don't have a SportsID or CampID account?",
+   "YOU_MUST_SIGN": "You must have a SportsID account to use CampID",
+   "SIGN_UP" : "Sign up for a SportsID account now",
+   "ENTER_RESET_EMAIL": "Enter your email address below to receive your password reset instructions.",
+   "OR": "OR",
+
+   "LOGIN_WITH_SPORTS": "Login with your SportsID account",
+   "TAKE_PHOTO": "Take Photo",
+   "PICK_FROM_LIBRARY": "Pick From Library",
+   "CANCEL": "Cancel",
+
+   "WELCOME": "Welcome",
+   "ATHLETE": "Athlete",
+   "COACH": "Coach",
+   "ADMINISTRATOR": "Administrator",
+   "PARENT": "Parent",
+
+   "BEGINNER": "Beginner",
+   "NOVICE": "Novice",
+   "INTERMEDIATE": "Intermediate",
+   "ADVANCED": "Advanced",
+   "ELITE": "Elite",
+
+   "CONTINUE_TO_DASHBOARD": "Continue to Dashboard",
+   "SUBSCRIBE_TO_CAMPID":"Subscribe to CampID",
+
+   "NOT_YOUR_ACCOUNT":"Not your account?",
+   "REPORT_ERRORS": "Report Errors >",
+   
+   "YES": "Yes",
+   "NO": "No"
+}
