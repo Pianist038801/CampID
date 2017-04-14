@@ -8,7 +8,7 @@ const dMargin = sWidth * (48 / 640.0);
 const metrics = {
   textLeftMargin: sWidth * (5 / 64.0),
   bottomBtnMargin: sWidth * (2.5 / 64.0),
-  _real: count => (sHeight * (count / 1135.0)),
+  _real: count => (sHeight * (count / 1136.0)),
   searchBarHeight: 30,
   screenWidth: sWidth,
   screenHeight: sHeight,
@@ -17,6 +17,7 @@ const metrics = {
   defaultMargin: dMargin,
   defaultPadding: dMargin,
   listItemHeight: sHeight / 9,
+  listHeaderHeight: 60,
   appleSize: sHeight / 13,
   contentHeight: sHeight - 110,
   listItemWidth: sWidth - (dMargin * 2),
@@ -31,6 +32,7 @@ const metrics = {
   avatarSize: Math.min(width * (177 / 640.0), height * (177 / 1136.0)),
   innerAvatarSize: Math.min(width * (180 / 640.0), height * (180 / 1136.0)) * (3 / 4.0),
   iconSizeSmall: 15,
+  dashboardImageHeight: 157,
 };
 
 export default metrics;

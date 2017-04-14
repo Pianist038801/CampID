@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { closeDrawer } from '@actions/drawer';
 import { View } from 'react-native';
-import {setSpinnerVisible, replaceRoute} from '@actions/globals'
+import { setSpinnerVisible, replaceRoute } from '@actions/globals';
 import { Metrics } from '@theme';
 class SideBar extends Component {
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: 'black' }}>
-      </View>
+      <View style={{ flex: 1, backgroundColor: 'black' }} />
     );
   }
 }

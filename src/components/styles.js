@@ -11,21 +11,6 @@ export default StyleSheet.create({
     borderWidth: Metrics.avatarSize / 8.0,
     justifyContent: 'center',
   },
-  imgInnerAvatar:
-  {
-    width: Metrics.innerAvatarSize,
-    height: Metrics.innerAvatarSize,
-    borderRadius: Metrics.innerAvatarSize / 2.0,
-    resizeMode: 'stretch',
-
-  },
-  imgInnerAvatarView:
-  {
-    width: Metrics.innerAvatarSize,
-    height: Metrics.innerAvatarSize,
-    borderRadius: Metrics.innerAvatarSize / 2.0,
-  },
-
   listItemContainer: {
     flex: 1,
     alignItems: 'center',
@@ -44,6 +29,13 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  listHeaderContainer: {
+    height: Metrics.listHeaderHeight,
+    justifyContent: 'center',
+    paddingHorizontal: Metrics.defaultMargin / 2.0,
+  },
+  
+  listHeaderTitle: Fonts.style.h0,
   listItemHeaderContainer: {
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -91,6 +83,6 @@ export default StyleSheet.create({
     alignItems: 'flex-end',
   },
   statusBar: {
-    height: Platform.OS === 'ios' ? Metrics.statusBarHeight : 0
+    height: Platform.OS === 'ios' ? Metrics.statusBarHeight : 0,
   },
 });

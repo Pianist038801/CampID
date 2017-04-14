@@ -47,9 +47,9 @@ const CommonWidgets = {
     );
   },
 
-  renderDivider() {
+  renderDivider(size = 2) {
     return (
-      <View style={{ height: 2, width: Metrics.screenWidth, backgroundColor: Colors.textSecondary }} />
+      <View style={{ height: size, width: Metrics.screenWidth, backgroundColor: Colors.textSecondary }} />
     );
   },
 
@@ -153,7 +153,8 @@ const CommonWidgets = {
 
   renderNavBarLeftButton(onPress, icon = 'back') {
     let iconName = 'chevron-left';
-    if (icon === 'close') iconName = 'times';
+    if (icon === 'menu') iconName = 'bars';
+    if (icon === 'search') iconName = 'search';
     return (
       <TouchableOpacity
         style={{ paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
@@ -172,6 +173,16 @@ const CommonWidgets = {
           <Image style={[{ width: Metrics._real(90), height: Metrics._real(90), resizeMode: 'stretch' }, style]} source={img} />
         </View>
       </TouchableOpacity>
+    );
+  },
+
+  renderListHeader(text, backColor, textColor) {
+    return (
+      <View style={[styles.listHeaderContainer, { backgroundColor: backColor }]} >
+        <Text style={[styles.listHeaderTitle, { color: textColor }]} >
+          {text}
+        </Text>
+      </View>
     );
   },
 

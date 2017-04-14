@@ -101,7 +101,7 @@ class Register extends Component {
             style={Styles.navBarStyle}
             title={CommonWidgets.renderNavBarHeader('Christina Smith')}
             tintColor={Colors.txtTitle}
-            leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.replaceRoute('login'))}  />
+            leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.replaceRoute('login'))} />
 
           <Image
             resizeMode={'stretch'}

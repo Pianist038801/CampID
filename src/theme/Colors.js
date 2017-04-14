@@ -3,7 +3,7 @@ const colors = {
   brandPrimary: '#EE6E0D',
   brandSecondary: '#FFFFFF',
   brandThird: '#F7F7F7',
-  
+
   btnDisabled: 'rgb(182,180,179)',
   btnBlue: 'rgb(0,63,203)',
   textPrimary: '#000000',

@@ -12,7 +12,7 @@ const openDrawer = (state, action) => ({
 });
 const closeDrawer = (state, action) => ({
   ...state,
-  drawerState: 'closed'
+  drawerState: 'closed',
 });
 const actionHandlers = {
   [Types.OPEN_DRAWER]: openDrawer,

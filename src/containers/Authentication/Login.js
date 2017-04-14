@@ -115,10 +115,10 @@ class Login extends Component {
           {/* -----BottomArea---- */}
           <View style={[styles.bottomAreaLogin, { alignSelf: 'flex-end' }]}>
             {CommonWidgets.renderDivider()}
-            <Text style={[Fonts.style._h4, { color: Colors.textPrimary }]}>
+            <Text style={[Fonts.style.h5, { color: Colors.textPrimary }]}>
               {I18n.t('DONOT_HAVE_ACCOUNT')}
             </Text>
-            <Text style={[Fonts.style._h4, { color: Colors.textPrimary }]}>
+            <Text style={[Fonts.style.h5, { color: Colors.textPrimary }]}>
               {I18n.t('YOU_MUST_SIGN')}
             </Text>
             {CommonWidgets.renderTextButton(I18n.t('SIGN_UP'), Fonts.style.hyperButtonText, () => this.doRegister())}

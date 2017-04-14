@@ -35,7 +35,7 @@ class ActionSheet extends Component {
     });
     setTimeout(() => {
       _this.props.onPress(index);
-    }, 300)
+    }, 300);
   }
 
   _cancel() {

@@ -9,11 +9,13 @@ const type = {
   semibold: 'TitilliumWeb-SemiBold',
 };
 
-/*const size = {
+/* const size = {
   h1: 30,
   h2: 22,
   h3: 20,
   h4: 18,
+  _h3: Metrics.screenHeight * (25 / 1135.0),
+  h3: Metrics.screenHeight * (20 / 1135.0),
   h5: 16,
   h6: 14,
   default: 12,
@@ -22,12 +24,11 @@ const type = {
 };*/
 
 const size = {
-  h1: 30,
+  h0: 30,
+  h1: 25,
   h2: 22,
-  h3:20,
+  h3: 20,
   h4: 18,
-  _h3: Metrics.screenHeight * 25 / 1135.0,
-  _h4: Metrics.screenHeight * 20 / 1135.0,
   h5: 16,
   h6: 14,
   default: 12,
@@ -38,7 +39,7 @@ const size = {
 const style = {
   textInput: {
     fontFamily: type.regular,
-    fontSize: size._h4,
+    fontSize: size.h6,
     backgroundColor: 'transparent',
   },
   fieldInput: {
@@ -46,6 +47,13 @@ const style = {
     fontSize: size.h6,
     backgroundColor: 'transparent',
     color: Colors.textThird,
+  },
+  h0: {
+    fontFamily: type.semibold,
+    fontSize: size.h0,
+    backgroundColor: 'transparent',
+    letterSpacing: 2,
+    includeFontPadding: true,
   },
   h1: {
     fontFamily: type.semibold,
@@ -74,17 +82,17 @@ const style = {
     fontSize: size.h5,
     backgroundColor: 'transparent',
   },
-  bold:{
-    fontFamily: type.bold
+  bold: {
+    fontFamily: type.bold,
   },
-  semibold:{
-    fontFamily: type.semibold
+  semibold: {
+    fontFamily: type.semibold,
   },
   regular: {
-    fontFamily: type.regular
+    fontFamily: type.regular,
   },
-  light:{
-    fontFamily: type.light
+  light: {
+    fontFamily: type.light,
   },
   h6: {
     fontFamily: type.semibold,
@@ -92,73 +100,58 @@ const style = {
     backgroundColor: 'transparent',
   },
   buttonText: {
-    fontFamily: type.bold,
-    fontSize: size._h3,
+    fontFamily: type.semibold,
+    fontSize: size.h4,
     letterSpacing: 0.5,
     color: 'white',
     backgroundColor: 'transparent',
   },
-  _h3: {
-    fontFamily: type.bold,
-    fontSize: size._h3,
-    letterSpacing: 0.5,
-    color: 'black',
-    backgroundColor: 'transparent',
-  },
-  bottomText: { 
+  bottomText: {
     fontFamily: type.regular,
-    fontSize: size._h4,
+    fontSize: size.h3,
     letterSpacing: 0.5,
     color: Colors.textSecondary,
     backgroundColor: 'transparent',
   },
-  _h4: { 
-    fontFamily: type.regular,
-    fontSize: size._h4,
-    letterSpacing: 0.5,
-    color: Colors.textSmall,
-    backgroundColor: 'transparent',
-  },
-  _h4_b: { 
-    fontFamily: type.bold,
-    fontSize: size._h4,
-    letterSpacing: 0.5,
-    color: Colors.textSmall,
-    backgroundColor: 'transparent',
-  },
   hyperButtonText: {
     fontFamily: type.semibold,
-    fontSize: size._h4,
+    fontSize: size.h5,
     letterSpacing: 0.5,
-    backgroundColor: 'transparent', 
-    color: Colors.textFourth
+    backgroundColor: 'transparent',
+    color: Colors.textFourth,
   },
   registerBottomBtn:
   {
     fontFamily: type.semibold,
     letterSpacing: 0.5,
-    fontSize: size._h4,
-    backgroundColor: 'transparent', 
+    fontSize: size.h5,
+    backgroundColor: 'transparent',
     color: Colors.textPrimary,
-    left: Metrics.bottomBtnMargin
+    left: Metrics.bottomBtnMargin,
   },
   reportErrBtn:
   {
     fontFamily: type.semibold,
     letterSpacing: 0.5,
-    fontSize: size._h4,
-    backgroundColor: 'transparent', 
-    color: Colors.textBlue, 
-    marginRight: Metrics.bottomBtnMargin
+    fontSize: size.h5,
+    backgroundColor: 'transparent',
+    color: Colors.textBlue,
+    marginRight: Metrics.bottomBtnMargin,
   },
-  forgotText:{
+  forgotText: {
     fontFamily: type.regular,
     letterSpacing: 0.5,
-    fontSize: size._h4,
-    backgroundColor: 'transparent', 
-    color: Colors.textThird
-  }
-  ,
+    fontSize: size.h5,
+    backgroundColor: 'transparent',
+    color: Colors.textThird,
+  },
+  listHeaderText: {
+    fontFamily: type.bold,
+    letterSpacing: 0.5,
+    backgroundColor: 'transparent',
+    color: Colors.textPrimary,
+    fontSize: Metrics.listHeaderHeight / 2.0,
+  },
   listItemTitleText: {
     fontFamily: type.semibold,
     fontSize: size.h5,
@@ -178,4 +171,3 @@ export default {
   size,
   style,
 };
-

@@ -6,21 +6,21 @@ export default StyleSheet.create({
     flex: 5,
     alignItems: 'center',
   },
-  logoImage:
-  { 
+  logoImage: {
     resizeMode: 'stretch',
-    top:0,
-    left:0,
+    top: 0,
+    left: 0,
     width: Metrics.screenWidth,
-    height: Metrics.screenHeight * 313.0 / 1135.0,
+    height: Metrics.screenHeight * (313.0 / 1135.0),
   },
- 
-  forgotText:{
+
+  forgotText: {
     alignSelf: 'center',
     textAlign: 'center',
     color: Colors.textThird,
-    fontSize: Fonts.size.h4
+    fontSize: Fonts.size.h4,
   },
+
   forgotTextStyle: {
     width: Metrics.buttonWidth,
     alignSelf: 'center',
@@ -42,7 +42,7 @@ export default StyleSheet.create({
   bottomAreaLogin: {
     ...Styles.center,
     flexDirection: 'column',
-    height: Metrics.screenHeight * 137 / 1135.0,
+    height: Metrics.screenHeight * (137 / 1135.0),
   },
   bottomAreaRegister: {
     ...Styles.center,

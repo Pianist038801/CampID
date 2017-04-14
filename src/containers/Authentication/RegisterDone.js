@@ -111,19 +111,19 @@ class RegisterDone extends Component {
               {CommonWidgets.renderAvatar(this.props.globals.avatarUri, () => this.showActionSheetMenu())}
             </View>
             <View style={[{ flex: 0.1, marginTop: -Metrics._real(0) }, Styles.center]}>
-              {CommonWidgets.renderText([Fonts.style._h3], 'Christina Smith')}
+              {CommonWidgets.renderText({ ...Fonts.style.h4, ...Fonts.style.semibold }, 'Christina Smith')}
               <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                {CommonWidgets.renderText([Fonts.style._h4_b, { color: Colors.textPrimary }], 'HS Point Guard ')}
-                {CommonWidgets.renderText(Fonts.style._h4, '| Saint Francis (GA) #1')}
+                {CommonWidgets.renderText({ ...Fonts.style.h5, ...Fonts.style.semibold }, 'HS Point Guard ')}
+                {CommonWidgets.renderText({ ...Fonts.style.h5, ...Fonts.style.regular }, '| Saint Francis (GA) #1')}
               </View>
             </View>
             <View style={[{ flex: 18 }, Styles.center]}>
-              {CommonWidgets.renderMaterialButton(I18n.t('CONTINUE_TO_DASHBOARD'))}
+              {CommonWidgets.renderMaterialButton(I18n.t('CONTINUE_TO_DASHBOARD'), Colors.brandPrimary, () => this.props.replaceRoute('home'))}
             </View>
             <View style={{ flex: 15 }}>
               {CommonWidgets.renderSpacer(40)}
-              {CommonWidgets.renderTextWithMargin(Fonts.style._h3, 'Upgrade')}
-              {CommonWidgets.renderTextWithMargin(Fonts.style._h4, 'Lorem ipsum dolor sit arnet, consectetur adipiscing elit.lla empor feugiat elementumaecenas rhmale.')}
+              {CommonWidgets.renderTextWithMargin(Fonts.style.h3, 'Upgrade')}
+              {CommonWidgets.renderTextWithMargin({ ...Fonts.style.h5, ...Fonts.style.regular }, 'Lorem ipsum dolor sit arnet, consectetur adipiscing elit.lla empor feugiat elementumaecenas rhmale.')}
             </View>
             <View style={[{ flex: 18 }, Styles.center]}>
               {CommonWidgets.renderMaterialButton(I18n.t('SUBSCRIBE_TO_CAMPID'), Colors.btnBlue)}
