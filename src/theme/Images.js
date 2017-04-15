@@ -9,7 +9,7 @@ const images = {
   registerSkillBg: require('@assets/images/imgRegisterSkillBg.png'),
   registerExpBg: require('@assets/images/imgRegisterExpBg.png'),
   registerDoneBg: require('@assets/images/imgRegisterDoneBg.png'),
-  
+
   imgLeftBtn: require('@assets/images/leftBtn.png'),
   imgRightBtn: require('@assets/images/rightBtn.png')
 };

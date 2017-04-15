@@ -55,7 +55,7 @@ class AppNavigator extends Component {
       return true;
     });
   }
-  
+
   componentDidUpdate() {
     if (this.props.drawerState === 'opened') {
       this.openDrawer();

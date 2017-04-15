@@ -34,8 +34,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: Metrics.defaultMargin / 2.0,
   },
-  
-  listHeaderTitle: Fonts.style.h0,
+  listHeaderTitle: Fonts.style.h2,
   listItemHeaderContainer: {
     alignItems: 'center',
     justifyContent: 'space-between',

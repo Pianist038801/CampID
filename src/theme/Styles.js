@@ -17,7 +17,7 @@ const Styles = {
   textInputContainerStyle: {
     width: Metrics.buttonWidth,
     borderWidth: 1,
-    borderRadius:5,
+    borderRadius: 5,
     paddingHorizontal: 15,
   },
   normalButton: {

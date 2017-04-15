@@ -53,9 +53,10 @@ const CommonWidgets = {
     );
   },
 
-  renderSpacer(count) {
+  renderSpacer(count, bkColor) {
+    if (bkColor === undefined) bkColor = 'transparent';
     return (
-      <View style={{ height: (Metrics.screenHeight * (count / 1135.0)) }} />
+      <View style={{ backgroundColor: bkColor, height: (Metrics.screenHeight * (count / 1135.0)) }} />
     );
   },
 
@@ -179,7 +180,7 @@ const CommonWidgets = {
   renderListHeader(text, backColor, textColor) {
     return (
       <View style={[styles.listHeaderContainer, { backgroundColor: backColor }]} >
-        <Text style={[styles.listHeaderTitle, { color: textColor }]} >
+        <Text style={[styles.listHeaderTitle, { letterSpacing: 0.5, color: textColor }]} >
           {text}
         </Text>
       </View>

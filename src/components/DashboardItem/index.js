@@ -1,52 +1,57 @@
 import React, { Component } from 'react';
 import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 
-import { Styles, Metrics } from '@theme/';
+import { Styles, Metrics, Images, Colors } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import Utils from '@src/utils';
 
 class DashboardItem extends Component {
   render() {
-    const item = this.props.item;
     return (
-      <View style={styles.container}>
-        {CommonWidgets.renderListHeader(I18n.t('VERSION') + ' ' + item.id, Utils.getStringFromDate(item.date))}
-        {CommonWidgets.renderOverviewSubHeader(I18n.t('STATUS'), I18n.t('ISSUES'), '%')}
-        { // Render Table Data
-          item.data.map((obj, index) => (
-            CommonWidgets.renderOverviewRowItem(index, Utils.getHeaderString(obj.status), obj.issues, obj.percent + '%')
-          ))
-        }
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity
-            style={[Styles.center, Styles.buttonStyle1]}
-            onPress={this.props.onPressTopButton}
-          >
-            <Text style={Styles.buttonTextStyle1}>{I18n.t('BURNDOWN_CHART')}</Text>
+      <View>
+        {CommonWidgets.renderSpacer(18)}
+        <View style={styles.container} >
+          <TouchableOpacity>
+            <Image style={styles.listImg} source={Images.imgLoginLogo} />
           </TouchableOpacity>
-          <View style={{ height: Metrics.defaultPadding / 2 }} />
-          <TouchableOpacity
-            style={[Styles.center, Styles.buttonStyle2]}
-            onPress={this.props.onPressBottomButton}
-          >
-            <Text style={Styles.buttonTextStyle2}>{I18n.t('TIME_TRACKING_REPORT')}</Text>
-          </TouchableOpacity>
+          <Text style={styles.descTitle}>
+            { this.props.txtTitle }
+          </Text>
+          <Text style={styles.descPeriod}>
+            { this.props.txtPeriod }
+          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <Text style={styles.descDetail}>
+              { this.props.txtSchool }
+            </Text>
+            <Text style={styles.descPrice}>
+              { this.props.txtPrice }
+            </Text>
+          </View>
         </View>
+        {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
       </View>
     );
   }
 }
+
 DashboardItem.propTypes = {
-  onPressTopButton: React.PropTypes.func.isRequired,
-  onPressBottomButton: React.PropTypes.func.isRequired,
+  txtTitle: React.PropTypes.string.isRequired,
+  txtPeriod: React.PropTypes.string.isRequired,
+  txtSchool: React.PropTypes.string.isRequired,
+  txtPrice: React.PropTypes.string.isRequired,
 };
+
 DashboardItem.defaultProps = {
-  onPressTopButton: () => { alert('TopPressed'); },
-  onPressBottomButton: () => { alert('BottomPressed'); },
+  txtTitle: 'Adidas ABCD',
+  txtPeriod: "Top recruits from across the nation compete in one of the country's top showcases",
+  txtSchool: 'University of Connecticut - Storrs, CT',
+  txtPrice: '$199',
 };
+
 function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };

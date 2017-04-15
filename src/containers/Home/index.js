@@ -1,4 +1,4 @@
-import { Text, View, Platform, Image } from 'react-native';
+import { Text, View, Platform, Image, ScrollView } from 'react-native';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
@@ -13,19 +13,30 @@ import Constants from '@src/constants';
 import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
+import DashboardItem from '@components/DashboardItem';
 
 class Home extends Component {
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: 'blue' }}>
-        {CommonWidgets.renderStatusBar(Colors.brandPrimary)}
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        {CommonWidgets.renderStatusBar(Colors.brandPrimary) }
         <NavigationBar
           style={Styles.navBarStyle}
           title={CommonWidgets.renderNavBarHeader(I18n.t('CAMPID_DASHBOARD'))}
           tintColor={Colors.brandSecondary}
           leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')}
           rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.replaceRoute('login'), 'search')} />
-        {CommonWidgets.renderListHeader('Camp Spotlight', Colors.brandSecondary, Colors.textPrimary)}
+
+        <ScrollView>
+          {CommonWidgets.renderListHeader('Camp Spotlight', Colors.brandSecondary, Colors.textPrimary)}
+          <ScrollView horizontal >
+            <DashboardItem />
+            <DashboardItem />
+          </ScrollView>
+          {CommonWidgets.renderListHeader('Camps For You', Colors.brandPrimary, Colors.brandSecondary)}
+          <DashboardItem />
+          <DashboardItem />
+        </ScrollView>
       </View>
     );
   }
