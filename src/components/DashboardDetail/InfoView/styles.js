@@ -51,8 +51,8 @@ export default StyleSheet.create({
   rateBar: {
     ...Styles.center,
     resizeMode: 'stretch',
-    width: 149,
-    height: 96,
+    width: Metrics.rateBarWidth,
+    height: Metrics.rateBarHeight,
   },
   rateText: {
     ...Fonts.style.h4,
@@ -64,17 +64,17 @@ export default StyleSheet.create({
     color: Colors.brandPrimary,
   },
   leftView: {
-    width: Metrics.screenWidth - Metrics.defaultMargin - 149 - 20,
+    width: Metrics.screenWidth - Metrics.defaultMargin - Metrics.rateBarWidth - Metrics.dashboardGap,
     paddingVertical: 10,
     justifyContent: 'center',
   },
   rightView: {
     ...Styles.center,
     paddingVertical: 10,
-    width: 149,
+    width: Metrics.rateBarWidth,
   },
   middleGap: {
-    width: 20,
+    width: Metrics.dashboardGap,
   },
   rowContainer: {
     flexDirection: 'row',

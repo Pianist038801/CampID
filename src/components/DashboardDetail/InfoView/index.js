@@ -7,6 +7,7 @@ import { Styles, Metrics, Images, Colors } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import Utils from '@src/utils'; 
+import MapView from 'react-native-maps';
 
 class InfoView extends Component {
   render() {
@@ -59,7 +60,15 @@ class InfoView extends Component {
             </View>
             <View style={styles.middleGap} />
             <View style={styles.rightView}>
-           
+              <MapView
+                style={{ width: Metrics.rateBarWidth, height: Metrics.rateBarHeight }}
+                initialRegion={{
+                  latitude: 37.78825,
+                  longitude: -122.4324,
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421,
+                }}
+              />
             </View>
           </View>
         </View>

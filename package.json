@@ -17,6 +17,7 @@
     "react-native-image-picker": "^0.26.2",
     "react-native-image-resizer": "^0.1.0",
     "react-native-keyboard-aware-scroll-view": "^0.2.8",
+    "react-native-maps": "^0.13.0",
     "react-native-material-kit": "^0.4.1",
     "react-native-navbar": "^1.7.1",
     "react-native-scrollable-tab-view": "^0.7.4",

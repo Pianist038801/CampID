@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-maps')
     compile project(':react-native-image-resizer')
     compile project(':react-native-spinkit')
     compile project(':react-native-material-kit')

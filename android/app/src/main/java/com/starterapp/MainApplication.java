@@ -3,6 +3,7 @@ package com.starterapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 import com.github.xinthink.rnmk.ReactMaterialKitPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new MapsPackage(),
             new ImageResizerPackage(),
             new RNSpinkitPackage(),
             new ReactMaterialKitPackage(),

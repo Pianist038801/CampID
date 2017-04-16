@@ -34,6 +34,9 @@ const metrics = {
   iconSizeSmall: 15,
   dashboardImageHeight: 157,
   listImgHeight: sHeight * (160 / 1136.0),
+  rateBarWidth: 149,
+  rateBarHeight: 96,
+  dashboardGap: 20,
 };
 
 export default metrics;
