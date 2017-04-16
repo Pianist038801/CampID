@@ -23,13 +23,11 @@ export default StyleSheet.create({
   },
   descDetail: {
     ...Fonts.style.h4,
-    marginRight: 20,
     color: Colors.textSecondary,
   },
   descPrice: {
     ...Fonts.style.h1,
     letterSpacing: 0.5,
-    marginLeft: 20,
     color: Colors.brandPrimary,
   },
   buttonsContainer: {

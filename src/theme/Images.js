@@ -11,7 +11,9 @@ const images = {
   registerDoneBg: require('@assets/images/imgRegisterDoneBg.png'),
 
   imgLeftBtn: require('@assets/images/leftBtn.png'),
-  imgRightBtn: require('@assets/images/rightBtn.png')
+  imgRightBtn: require('@assets/images/rightBtn.png'),
+
+  rateBar: require('@assets/images/rateBar.png'),
 };
 
 export default images;

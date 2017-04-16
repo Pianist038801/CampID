@@ -13,9 +13,9 @@ import Constants from '@src/constants';
 import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
-import DashboardItem from '@components/DashboardItem';
+import InfoView from '@components/DashboardDetail/InfoView';
 
-class Home extends Component {
+class DashboardDetail extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -28,21 +28,14 @@ class Home extends Component {
           rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.replaceRoute('login'), 'search')} />
 
         <ScrollView>
-          {CommonWidgets.renderListHeader('Camp Spotlight', Colors.brandSecondary, Colors.textPrimary)}
-          <ScrollView horizontal >
-            <DashboardItem />
-            <DashboardItem />
-          </ScrollView>
-          {CommonWidgets.renderListHeader('Camps For You', Colors.brandPrimary, Colors.brandSecondary)}
-          <DashboardItem />
-          <DashboardItem />
+          <InfoView />
         </ScrollView>
       </View>
     );
   }
 }
 
-Home.propTypes = {
+DashboardDetail.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   setHomeTab: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
@@ -57,8 +50,9 @@ function mapDispatchToProps(dispatch) {
     replaceRoute: route => dispatch(replaceRoute(route)),
   };
 }
+
 function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardDetail);

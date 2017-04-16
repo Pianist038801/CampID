@@ -7,7 +7,6 @@ import { Styles, Metrics, Images, Colors } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import Utils from '@src/utils';
-import { replaceRoute } from '@actions/route';
 
 class DashboardItem extends Component {
   render() {
@@ -15,7 +14,7 @@ class DashboardItem extends Component {
       <View>
         {CommonWidgets.renderSpacer(18)}
         <View style={styles.container} >
-          <TouchableOpacity onPress={() => this.props.replaceRoute('dashboardDetail')}>
+          <TouchableOpacity>
             <Image style={styles.listImg} source={Images.imgLoginLogo} />
           </TouchableOpacity>
           <Text style={styles.descTitle}>
@@ -27,16 +26,12 @@ class DashboardItem extends Component {
           {this.props.txtSchool !== '' &&
           (
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-              <View>
-                <Text style={styles.descDetail}>
-                  { this.props.txtSchool }
-                </Text>
-              </View>
-              <View>
-                <Text style={styles.descPrice}>
-                  { this.props.txtPrice }
-                </Text>
-              </View>
+              <Text style={styles.descDetail}>
+                { this.props.txtSchool }
+              </Text>
+              <Text style={styles.descPrice}>
+                { this.props.txtPrice }
+              </Text>
             </View>
           )}
 
@@ -66,11 +61,4 @@ function mapStateToProps(state) {
   return { globals };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-    replaceRoute: route => dispatch(replaceRoute(route)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardItem);
+export default connect(mapStateToProps, null)(DashboardItem);

@@ -16,7 +16,8 @@ import RegisterSkill from '@containers/Authentication/RegisterSkill';
 import RegisterExp from '@containers/Authentication/RegisterExp';
 import RegisterDone from '@containers/Authentication/RegisterDone';
 import ForgotPassword from '@containers/Authentication/ForgotPassword';
-import Home from '@containers/Home';
+import Home from '@containers/Home/Home';
+import DashboardDetail from '@containers/Home/DashboardDetail'
 
 Navigator.prototype.replaceWithAnimation = function (route) {
   const activeLength = this.state.presentedIndex + 1;
@@ -95,6 +96,8 @@ class AppNavigator extends Component {
         return <ForgotPassword navigator={navigator} {...route.passProps} />;
       case 'home':
         return <Home navigator={navigator} {...route.passProps} />;
+      case 'dashboardDetail':
+        return <DashboardDetail navigator={navigator} {...route.passProps} />;
       default :
         return <Login navigator={navigator} {...route.passProps} />;
     }
