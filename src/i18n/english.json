@@ -53,4 +53,9 @@
    "NO": "No",
 
    "RATE_CAMP": "Rate Camp",
+
+   "REGISTER": "Register",
+   "NOT_REGISTERED_FOR_THIS_CAMP": "Not registered for this camp.",
+
+   "VIDEO": "Video",
 }

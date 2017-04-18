@@ -84,4 +84,9 @@ export default StyleSheet.create({
   statusBar: {
     height: Platform.OS === 'ios' ? Metrics.statusBarHeight : 0,
   },
+  videoClipSize: {
+    width: Metrics.videoClipWidth,
+    height: Metrics.videoClipHeight,
+    borderRadius: 13,
+  },
 });

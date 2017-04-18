@@ -33,9 +33,12 @@ const metrics = {
   innerAvatarSize: Math.min(width * (180 / 640.0), height * (180 / 1136.0)) * (3 / 4.0),
   iconSizeSmall: 15,
   dashboardImageHeight: 157,
+  priceViewWidth: 70,
   listImgHeight: sHeight * (160 / 1136.0),
   rateBarWidth: 149,
   rateBarHeight: 96,
+  videoClipWidth: 200,
+  videoClipHeight: 150,
   dashboardGap: 20,
 };
 

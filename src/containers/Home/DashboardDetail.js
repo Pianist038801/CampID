@@ -14,6 +14,8 @@ import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import InfoView from '@components/DashboardDetail/InfoView';
+import VideoView from '@components/DashboardDetail/VideoView';
+import TabView from '@components/DashboardDetail/TabView';
 
 class DashboardDetail extends Component {
   render() {
@@ -29,6 +31,8 @@ class DashboardDetail extends Component {
 
         <ScrollView>
           <InfoView />
+          <VideoView />
+           
         </ScrollView>
       </View>
     );

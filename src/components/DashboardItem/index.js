@@ -39,7 +39,6 @@ class DashboardItem extends Component {
               </View>
             </View>
           )}
-
         </View>
         {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
       </View>

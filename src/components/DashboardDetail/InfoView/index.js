@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import I18n from 'react-native-i18n';
 import { connect } from 'react-redux';
-import { View, Text, TouchableOpacity, Image, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Alert, ScrollView } from 'react-native';
 
-import { Styles, Metrics, Images, Colors } from '@theme/';
+import { Styles, Metrics, Images, Colors, Fonts } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
-import Utils from '@src/utils'; 
+import Utils from '@src/utils';
 import MapView from 'react-native-maps';
 
 class InfoView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      coordinate: {
+        latitude: 37.78825,
+        longitude: -122.4324,
+      },
+    };
+  }
   render() {
     return (
       <View>
@@ -42,10 +51,13 @@ class InfoView extends Component {
               {CommonWidgets.renderTextButton(I18n.t('RATE_CAMP'), styles.rateCampBtn, () => Alert.alert('CAMP'))}
             </View>
           </View>
-          {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
+        </View>
+
+        {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
+
+        <View style={styles.container} >
           <View style={styles.rowContainer}>
             <View style={styles.leftView}>
-
               <Text style={styles.stadium}>
                 { this.props.txtStadium }
               </Text>
@@ -67,13 +79,39 @@ class InfoView extends Component {
                   longitude: -122.4324,
                   latitudeDelta: 0.0922,
                   longitudeDelta: 0.0421,
-                }}
-              />
+                }}>
+                <MapView.Marker
+                  coordinate={this.state.coordinate}
+                />
+              </MapView>
             </View>
           </View>
         </View>
         {CommonWidgets.renderSpacer(2, Colors.textSecondary)}
 
+        <View style={styles.container} >
+          <View style={styles.rowContainer}>
+            <View style={[...styles.leftView, { flex: 1, flexDirection: 'row', alignItems: 'center' }]}>
+              <View style={styles.priceView}>
+                <Text style={styles.descPrice}>
+                  { this.props.txtPrice }
+                </Text>
+              </View>
+              <View style={styles.middleTextView}>
+                <Text style={[styles.university, { marginLeft: 20 }]}>
+                  { I18n.t('NOT_REGISTERED_FOR_THIS_CAMP') }
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.middleGap} />
+            <View style={styles.rightView}>
+              {CommonWidgets.renderMaterialButton(I18n.t('REGISTER'), Colors.brandPrimary, () => Alert.alert('ss'), Metrics.rateBarWidth)}
+            </View>
+          </View>
+        </View>
+
+        {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
       </View>
     );
   }

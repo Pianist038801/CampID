@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Metrics, Fonts } from '@theme/';
+import { Colors, Metrics, Fonts, Styles } from '@theme/';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     width: Metrics.screenWidth,
     paddingHorizontal: Metrics.bottomBtnMargin,
+    marginBottom: 0,
   },
   listImg: {
     height: Metrics.listImgHeight,
@@ -14,11 +15,15 @@ export default StyleSheet.create({
     resizeMode: 'stretch',
   },
   descTitle: {
-    ...Fonts.style.h4,
-    color: Colors.brandPrimary,
+    ...Fonts.style.h5,
+    color: Colors.textSecondary,
+  },
+  descSubTitle: {
+    ...Fonts.style.h5,
+    color: Colors.textPrimary,
   },
   descPeriod: {
-    ...Fonts.style.h4,
+    ...Fonts.style.h5,
     color: Colors.textPrimary,
   },
   descDetail: {
@@ -30,6 +35,62 @@ export default StyleSheet.create({
     letterSpacing: 0.5,
     color: Colors.brandPrimary,
   },
+  stadium: {
+    ...Fonts.style.h6,
+    ...Fonts.style.semibold,
+    color: Colors.textPrimary,
+  },
+  university: {
+    ...Fonts.style.h6,
+    color: Colors.textPrimary,
+  },
+  address: {
+    ...Fonts.style.h6,
+    color: Colors.textPrimary,
+  },
+  rateBar: {
+    ...Styles.center,
+    resizeMode: 'stretch',
+    width: Metrics.rateBarWidth,
+    height: Metrics.rateBarHeight,
+  },
+  rateText: {
+    ...Fonts.style.h4,
+    color: Colors.textBlue,
+    marginBottom: 10,
+  },
+  rateCampBtn: {
+    ...Fonts.style.h6,
+    color: Colors.brandPrimary,
+  },
+  leftView: {
+    width: Metrics.screenWidth - Metrics.defaultMargin - Metrics.rateBarWidth - Metrics.dashboardGap,
+    paddingVertical: 10,
+    justifyContent: 'center',
+  },
+  priceView: {
+    alignItems: 'flex-start',
+    width: Metrics.priceViewWidth,
+  },
+  middleTextView: {
+    alignItems: 'flex-start',
+    width: Metrics.screenWidth - Metrics.defaultMargin - Metrics.rateBarWidth - Metrics.dashboardGap - Metrics.priceViewWidth,
+  },
+  middleGap: {
+    width: Metrics.dashboardGap,
+  },
+  rightView: {
+    ...Styles.center,
+    paddingVertical: 10,
+    width: Metrics.rateBarWidth,
+  },
+  videoView: {
+
+  },
+  rowContainer: {
+    flexDirection: 'row',
+  },
+
   buttonsContainer: {
     flex: 1,
     borderColor: Colors.borderPrimary,

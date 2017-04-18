@@ -6,6 +6,7 @@ export default StyleSheet.create({
     flex: 1,
     width: Metrics.screenWidth,
     paddingHorizontal: Metrics.bottomBtnMargin,
+    marginBottom: 0,
   },
   listImg: {
     height: Metrics.listImgHeight,
@@ -47,7 +48,6 @@ export default StyleSheet.create({
     ...Fonts.style.h6,
     color: Colors.textPrimary,
   },
-
   rateBar: {
     ...Styles.center,
     resizeMode: 'stretch',
@@ -68,17 +68,29 @@ export default StyleSheet.create({
     paddingVertical: 10,
     justifyContent: 'center',
   },
+  priceView: {
+    alignItems: 'flex-start',
+    width: Metrics.priceViewWidth,
+  },
+  middleTextView: {
+    alignItems: 'flex-start',
+    width: Metrics.screenWidth - Metrics.defaultMargin - Metrics.rateBarWidth - Metrics.dashboardGap - Metrics.priceViewWidth,
+  },
+  middleGap: {
+    width: Metrics.dashboardGap,
+  },
   rightView: {
     ...Styles.center,
     paddingVertical: 10,
     width: Metrics.rateBarWidth,
   },
-  middleGap: {
-    width: Metrics.dashboardGap,
+  videoView: {
+
   },
   rowContainer: {
     flexDirection: 'row',
   },
+
   buttonsContainer: {
     flex: 1,
     borderColor: Colors.borderPrimary,

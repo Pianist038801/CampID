@@ -72,10 +72,15 @@ const CommonWidgets = {
     );
   },
 
-  renderMaterialButton(text, color = Colors.brandPrimary, onPress) {
+  renderMaterialButton(text, color = Colors.brandPrimary, onPress, _width) {
+    let _style;
+    if (_width === undefined)
+      {_style = Styles.button;}
+    else
+      {_style = [Styles.button, { width: _width }];}
     return (
       <TouchableOpacity onPress={onPress}>
-        <View style={Styles.button} backgroundColor={color} borderRadius={7}>
+        <View style={_style} backgroundColor={color} borderRadius={7}>
           <Text style={Fonts.style.buttonText}>
             {text}
           </Text>
@@ -164,7 +169,27 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
+  renderIcon(onPress, icon = 'back') {
+    const iconName = 'chevron-circle-right';
+    return (
+      <TouchableOpacity
+        style={{ paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
+        onPress={onPress} >
+        <Icon name={iconName} size={30} color={Colors.brandPrimary} />
+      </TouchableOpacity>
+    );
+  },
+  renderVideoClip(onPress, imgPath, caption) {
+    return (
+      <TouchableOpacity onPres={onPress} style={{ marginHorizontal: 10, flexDirection: 'column', alignItems: 'center' }}>
+        <Image source={3} style={styles.videoClipSize} />
+        <Text style={[{ color: Colors.brandPrimary }, Fonts.style.h4]}>
+          {caption}
+        </Text>
 
+      </TouchableOpacity>
+    );
+  },
   renderImgBtn(onPress, style, img) {
     return (
       <TouchableOpacity
