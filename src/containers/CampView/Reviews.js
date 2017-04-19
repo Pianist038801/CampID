@@ -13,11 +13,12 @@ import Constants from '@src/constants';
 import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
-import InfoView from '@components/DashboardDetail/InfoView';
-import VideoView from '@components/DashboardDetail/VideoView';
-import TabView from '@components/DashboardDetail/TabView';
+import InfoView from '@components/CampViewItem/InfoView';
+import VideoView from '@components/CampViewItem/VideoView';
+import TabView from '@components/CampViewItem/TabView';
+import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
 
-class DashboardDetail extends Component {
+class CampView extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -32,14 +33,18 @@ class DashboardDetail extends Component {
         <ScrollView>
           <InfoView />
           <VideoView />
-           
+          <ScrollableTabView renderTabBar={() => <DefaultTabBar />}>
+            <Text tabLabel='Tab #1'>My</Text>
+            <Text tabLabel='Tab #2'>favorite</Text>
+            <Text tabLabel='Tab #3'>project</Text>
+          </ScrollableTabView>
         </ScrollView>
       </View>
     );
   }
 }
 
-DashboardDetail.propTypes = {
+CampView.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   setHomeTab: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
@@ -59,4 +64,4 @@ function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(CampView);

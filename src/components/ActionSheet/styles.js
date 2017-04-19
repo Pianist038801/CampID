@@ -21,6 +21,7 @@ export const sheetStyle = StyleSheet.create({
   },
   bd: {
     flex: 1,
+    flexDirection: 'column',
     alignSelf: 'flex-end',
     backgroundColor: '#e5e5e5',
   },

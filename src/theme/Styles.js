@@ -6,6 +6,9 @@ import Colors from './Colors';
 
 
 const Styles = {
+  rowContainer: {
+    flexDirection: 'row',
+  },
   textInputStyle: {
     ...Fonts.style.textInput,
     width: Metrics.buttonWidth - Metrics.defaultMargin,

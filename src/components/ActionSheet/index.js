@@ -160,7 +160,6 @@ class ActionSheet extends Component {
   }
 }
 
-
 ActionSheet.propTypes = {
   title: PropTypes.string,
   options: PropTypes.array.isRequired,

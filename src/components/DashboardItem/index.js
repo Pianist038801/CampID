@@ -15,7 +15,7 @@ class DashboardItem extends Component {
       <View>
         {CommonWidgets.renderSpacer(18)}
         <View style={styles.container} >
-          <TouchableOpacity onPress={() => this.props.replaceRoute('dashboardDetail')}>
+          <TouchableOpacity onPress={() => this.props.replaceRoute('campView')}>
             <Image style={styles.listImg} source={Images.imgLoginLogo} />
           </TouchableOpacity>
           <Text style={styles.descTitle}>
