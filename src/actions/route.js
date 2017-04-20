@@ -6,7 +6,7 @@ export const replaceRoute = route =>
 export const pushNewRoute = route =>
   ({ type: Types.PUSH_NEW_ROUTE, route });
 
-export const replaceOrPushRoute = route =>
+export const replaceOrpushNewRoute = route =>
   ({ type: Types.REPLACE_OR_PUSH_ROUTE, route });
 
 export const popRoute = () =>

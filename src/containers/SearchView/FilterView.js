@@ -7,49 +7,50 @@ import NavigationBar from 'react-native-navbar';
 
 import { setHomeTab } from '@actions/globals';
 import { openDrawer } from '@actions/drawer';
-import { replaceRoute, pushNewRoute } from '@actions/route';
+import { replaceRoute, popRoute, pushNewRoute } from '@actions/route';
 
 import Constants from '@src/constants';
-import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
+import { Metrics, Styles, Colors, Fonts, Icon, Images } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
-import InfoView from '@components/CampViewItem/InfoView';
-import VideoView from '@components/CampViewItem/VideoView';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import About from './About';
+import SearchBar from 'react-native-searchbar';
+import SearchCell from '@components/SearchView/SearchCell';
 
-class CampView extends Component {
+class FilterView extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {CommonWidgets.renderStatusBar(Colors.brandPrimary) }
         <NavigationBar
           style={Styles.navBarStyle}
-          title={CommonWidgets.renderNavBarHeader(I18n.t('CAMPID_DASHBOARD'))}
+          title={CommonWidgets.renderNavBarHeader(I18n.t('SEARCH_RESULTS'), () => this.searchBar.show())}
           tintColor={Colors.brandSecondary}
-          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')}
-          rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.pushNewRoute('searchView'), 'search')} />
-
-        <ScrollView>
-          <InfoView />
-          <VideoView />
-          <ScrollableTabView renderTabBar={() => <DefaultTabBar />}>
-            <About tabLabel="ABOUT" />
-            <Text tabLabel="Tab #2">favorite</Text>
-            <Text tabLabel="Tab #3">project</Text>
-          </ScrollableTabView>
-        </ScrollView>
+          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
+          rightButton={(<View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+              {CommonWidgets.renderNavBarLeftButton(null, Images.downArrow)}
+          </View>)}
+           />
+        <View style={{ height: 60, justifyContent: 'center', backgroundColor: Colors.heavyBorder }}>
+          <Text style={{ ...Fonts.style.h4, color: Colors.textTitle, marginLeft: Metrics.defaultMargin / 2 }}> "Propspect Camps" - 42 Results</Text>
+        </View>
       </View>
     );
-  }
+   }
 }
 
-CampView.propTypes = {
+
+FilterView.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   setHomeTab: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
-  pushNewRoute: React.PropTypes.func.isRequired,
   openDrawer: React.PropTypes.func.isRequired,
+  popRoute: React.PropTypes.func.isRequired,
+  pushNewRoute: React.PropTypes.func.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {
@@ -59,6 +60,7 @@ function mapDispatchToProps(dispatch) {
     openDrawer: () => dispatch(openDrawer()),
     replaceRoute: route => dispatch(replaceRoute(route)),
     pushNewRoute: route => dispatch(pushNewRoute(route)),
+    popRoute: () => dispatch(popRoute()),
   };
 }
 
@@ -66,4 +68,4 @@ function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CampView);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterView);

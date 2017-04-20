@@ -17,7 +17,10 @@ import RegisterExp from '@containers/Authentication/RegisterExp';
 import RegisterDone from '@containers/Authentication/RegisterDone';
 import ForgotPassword from '@containers/Authentication/ForgotPassword';
 import Home from '@containers/Home/Home';
-import CampView from '@containers/CampView/CampView'
+import CampView from '@containers/CampView/CampView';
+import SearchView from '@containers/SearchView/SearchView';
+import FilterView from '@containers/SearchView/FilterView';
+import ProfileView from '@containers/ProfileView/ProfileView';
 
 Navigator.prototype.replaceWithAnimation = function (route) {
   const activeLength = this.state.presentedIndex + 1;
@@ -98,6 +101,12 @@ class AppNavigator extends Component {
         return <Home navigator={navigator} {...route.passProps} />;
       case 'campView':
         return <CampView navigator={navigator} {...route.passProps} />;
+      case 'searchView':
+        return <SearchView navigator={navigator}{...route.passProps} />;
+      case 'filterView':
+        return <FilterView navigator={navigator}{...route.passProps} />;
+      case 'profileView':
+        return <ProfileView navigator={navigator}{...route.passProps} />;
       default :
         return <Login navigator={navigator} {...route.passProps} />;
     }

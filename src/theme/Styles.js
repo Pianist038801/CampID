@@ -23,6 +23,12 @@ const Styles = {
     borderRadius: 5,
     paddingHorizontal: 15,
   },
+  smallButton: {
+    height: Metrics.buttonHeight * 2 / 3,
+    paddingHorizontal: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   normalButton: {
     height: Metrics.buttonHeight,
     paddingHorizontal: 25,
@@ -90,8 +96,8 @@ const Styles = {
     height: Metrics.appleSize * 3 / 2,
     borderRadius: Metrics.appleSize * 3 / 4,
   },
-  txtLeftMargin: {left: Metrics.screenWidth * 5 / 64.0}
-  
+  txtLeftMargin: { left: Metrics.screenWidth * 5 / 64.0 },
+
 };
 
 export default Styles;

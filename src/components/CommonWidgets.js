@@ -32,18 +32,20 @@ const CommonWidgets = {
     );
   },
 
-  renderNavBarHeader(headerText) {
+  renderNavBarHeader(headerText, onPress = null) {
     return (
-      <View style={Styles.center}>
-        <Text
-          style={[Fonts.style.h2,
-            { textAlign: 'center',
-              width: Metrics.screenWidth * 0.7,
-              color: Colors.textTitle }]}
-          numberOfLines={1}>
-          {headerText}
-        </Text>
-      </View>
+      <TouchableOpacity onPress={onPress}>
+        <View style={Styles.center}>
+          <Text
+            style={[Fonts.style.h2,
+              { textAlign: 'center',
+                width: Metrics.screenWidth * 0.7,
+                color: Colors.textTitle }]}
+            numberOfLines={1}>
+            {headerText}
+          </Text>
+        </View>
+      </TouchableOpacity>
     );
   },
 
@@ -71,7 +73,17 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
-
+  renderSmallButton(text, color = Colors.brandPrimary, onPress) {
+    return (
+      <TouchableOpacity onPress={onPress}>
+        <View style={Styles.smallButton} backgroundColor={color} borderRadius={13}>
+          <Text style={Fonts.style.buttonText}>
+            {text}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  },
   renderMaterialButton(text, color = Colors.brandPrimary, onPress, _width) {
     let _style;
     if (_width === undefined)
@@ -165,7 +177,11 @@ const CommonWidgets = {
       <TouchableOpacity
         style={{ paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
         onPress={onPress} >
+        {(isNaN(icon))?
         <Icon name={iconName} size={30} color={Colors.textTitle} />
+        :
+        <Image style={{width: 20, height: 20, resizeMode: 'stretch'}} source={icon} />
+        }
       </TouchableOpacity>
     );
   },

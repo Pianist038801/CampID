@@ -14,6 +14,7 @@ const images = {
   imgRightBtn: require('@assets/images/rightBtn.png'),
 
   rateBar: require('@assets/images/rateBar.png'),
+  downArrow: require('@assets/images/down_arrow.png'),
 };
 
 export default images;

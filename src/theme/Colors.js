@@ -20,10 +20,12 @@ const colors = {
   backgroundSecondary: '#FFFFFF',
   backgroundThird: '#e1e8ee',
 
+
   borderPrimary: '#C4C0C1',
   borderSecondary: '#E2E2E2',
   borderThird: '#888888',
   borderFocused: '#000000',
+  heavyBorder: 'rgb(60,60,60)',
 
   ripplePrimary: '#E22F4D50',
   rippleSecondary: '#27C87D50',

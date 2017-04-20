@@ -33,7 +33,7 @@ AboutCell.propTypes = {
 };
 
 AboutCell.defaultProps = {
-  imgPath: "Women's Basketball",
+  imgPath: 'https://facebook.github.io/react/img/logo_og.png',
   name: 'All American',
   job: "Head-Coach: Women's Basketball",
   school: 'Washington University',
