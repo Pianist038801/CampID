@@ -7,7 +7,7 @@ import NavigationBar from 'react-native-navbar';
 
 import { setHomeTab } from '@actions/globals';
 import { openDrawer } from '@actions/drawer';
-import { replaceRoute, pushNewRoute } from '@actions/route';
+import { replaceRoute, popRoute, pushNewRoute } from '@actions/route';
 
 import Constants from '@src/constants';
 import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
@@ -29,7 +29,7 @@ class CampView extends Component {
           style={Styles.navBarStyle}
           title={CommonWidgets.renderNavBarHeader(I18n.t('CAMPID_DASHBOARD'))}
           tintColor={Colors.brandSecondary}
-          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')}
+          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
           rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.pushNewRoute('searchView'), 'search')} />
 
         <ScrollView>
@@ -51,6 +51,7 @@ CampView.propTypes = {
   setHomeTab: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
   pushNewRoute: React.PropTypes.func.isRequired,
+  popRoute: React.PropTypes.func.isRequired,
   openDrawer: React.PropTypes.func.isRequired,
 };
 
@@ -61,6 +62,7 @@ function mapDispatchToProps(dispatch) {
     openDrawer: () => dispatch(openDrawer()),
     replaceRoute: route => dispatch(replaceRoute(route)),
     pushNewRoute: route => dispatch(pushNewRoute(route)),
+    popRoute: () => dispatch(popRoute()),
   };
 }
 

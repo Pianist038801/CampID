@@ -11,6 +11,7 @@
     "immutable": "^3.8.1",
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.2",
+    "react-native-collapsible": "^0.8.0",
     "react-native-drawer": "^2.3.0",
     "react-native-elements": "^0.10.3",
     "react-native-i18n": "^1.0.0",

@@ -45,6 +45,7 @@ const metrics = {
   reviewAvatarSize: 50,
   dashboardGap: 20,
   scheduleTabMargin: 40,
+  sidebarItemHeight: 65,
 };
 
 export default metrics;

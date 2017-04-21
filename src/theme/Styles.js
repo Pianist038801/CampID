@@ -117,7 +117,7 @@ const Styles = {
     borderRadius: Metrics.appleSize * 3 / 4,
   },
   txtLeftMargin: { left: Metrics.screenWidth * 5 / 64.0 },
-
+  filterIcon: { width: 30, height: 30, resizeMode: 'stretch' },
 };
 
 export default Styles;

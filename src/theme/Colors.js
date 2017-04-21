@@ -31,6 +31,7 @@ const colors = {
   rippleSecondary: '#27C87D50',
   rippleThird: '#1E80C750',
 
+  txtYellow: 'rgb(222,163,35)',
   rateBtnDisabled: 'rgb(187,185,185)',
 };
 

@@ -15,16 +15,16 @@ import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import DashboardItem from '@components/DashboardItem';
 
-class Home extends Component {
+class EditProfile extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {CommonWidgets.renderStatusBar(Colors.brandPrimary) }
         <NavigationBar
           style={Styles.navBarStyle}
-          title={CommonWidgets.renderNavBarHeader(I18n.t('CAMPID_DASHBOARD'))}
+          title={CommonWidgets.renderNavBarHeader(I18n.t('EDIT_PROFILE'))}
           tintColor={Colors.brandSecondary}
-          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')}
+          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
           rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.pushNewRoute('searchView'), 'search')} />
 
         <ScrollView>
@@ -35,17 +35,18 @@ class Home extends Component {
           </ScrollView>
           {CommonWidgets.renderListHeader('Camps For You', Colors.brandPrimary, Colors.brandSecondary)}
           <DashboardItem />
-          <DashboardItem />
+          <DashboardItem /> 
         </ScrollView>
       </View>
     );
   }
 }
 
-Home.propTypes = {
+EditProfile.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   setHomeTab: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
+  popRoute: React.PropTypes.func.isRequired,
   pushNewRoute: React.PropTypes.func.isRequired,
   openDrawer: React.PropTypes.func.isRequired,
 };
@@ -57,11 +58,11 @@ function mapDispatchToProps(dispatch) {
     openDrawer: () => dispatch(openDrawer()),
     replaceRoute: route => dispatch(replaceRoute(route)),
     pushNewRoute: route => dispatch(pushNewRoute(route)),
+    popRoute: route => dispatch(popRoute()),
   };
 }
 function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);

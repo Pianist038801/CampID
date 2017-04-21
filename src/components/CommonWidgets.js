@@ -97,9 +97,9 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
-  renderRateBtn(text, bClicked,  onPress, _width, _key) {
+  renderRateBtn(text, bClicked, onPress, _width, _key) {
     let _style;
-    var color = Colors.brandPrimary,
+    let color = Colors.brandPrimary,
       txtColor = 'white',
       borderColor = Colors.brandPrimary;
     if (bClicked === false) {
@@ -132,13 +132,13 @@ const CommonWidgets = {
     );
   },
   renderRightButton(text, _style, onPress) {
-    return(
+    return (
       <TouchableOpacity onPress={onPress}>
         <View style={Styles.center}>
           <Text
             style={[Fonts.style.h2,
               { textAlign: 'right',
-                
+
                 color: Colors.textTitle }]}
             numberOfLines={1}>
             {text}
@@ -255,6 +255,29 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
+
+  renderFilterHeader(img1, text, img2) {
+    let _src1 = { uri: img1 };
+    if (!isNaN(img1)) { _src1 = img1; }
+    let _src2 = { uri: img2 };
+    if (!isNaN(img1)) { _src2 = img2; }
+    return (
+      <View style={[Styles.container, { flexDirection: 'row', backgroundColor: 'transparent' }]}>
+        <View style={{ justifyContent: 'flex-start' }}>
+          <Image style={Styles.filterIcon} source={_src1} />
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text style={Fonts.style.h4}>
+            {text}
+          </Text>
+        </View>
+        <View style={{ alignSelf: 'flex-end' }}>
+          <Image style={[Styles.filterIcon, { justifyContent: 'flex-end' }]} source={_src2} />
+        </View>
+      </View>
+    );
+  },
+
   renderNavBarLeftButton(onPress, icon = 'back') {
     let iconName = 'chevron-left';
     if (icon === 'menu') iconName = 'bars';
@@ -271,6 +294,7 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
+
   renderIcon(onPress, icon = 'back') {
     const iconName = 'chevron-circle-right';
     return (
@@ -281,6 +305,7 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
+
   renderVideoClip(onPress, imgPath, caption) {
     return (
       <TouchableOpacity onPres={onPress} style={{ marginHorizontal: 10, flexDirection: 'column', alignItems: 'center' }}>
@@ -292,6 +317,7 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
+
   renderImgBtn(onPress, style, img) {
     return (
       <TouchableOpacity

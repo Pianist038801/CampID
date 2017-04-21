@@ -7,7 +7,7 @@ import { Styles, Metrics, Images, Colors } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import Utils from '@src/utils';
-import { replaceRoute } from '@actions/route';
+import { replaceRoute, pushNewRoute } from '@actions/route';
 
 class DashboardItem extends Component {
   render() {
@@ -15,7 +15,7 @@ class DashboardItem extends Component {
       <View>
         {CommonWidgets.renderSpacer(18)}
         <View style={styles.container} >
-          <TouchableOpacity onPress={() => this.props.replaceRoute('campView')}>
+          <TouchableOpacity onPress={() => this.props.pushNewRoute('campView')}>
             <Image style={styles.listImg} source={Images.imgLoginLogo} />
           </TouchableOpacity>
           <Text style={styles.descTitle}>
@@ -69,6 +69,7 @@ function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     replaceRoute: route => dispatch(replaceRoute(route)),
+    pushNewRoute: route => dispatch(pushNewRoute(route)),
   };
 }
 

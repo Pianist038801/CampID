@@ -69,4 +69,15 @@
    "SUBMIT": "Submit",
    "FILTER": "Filter",
    "CLEAR": "Clear",
+
+   "EDIT_PROFILE": "Edit Profile",
+   "CAMP_HISTORY": "Camp History",
+   "FORMS": "Forms",
+   "NOTIFICATIONS": "Notifications",
+   "SETTINGS": "Settings",
+   "PRIVACY_POLICY": "Privacy Policy",
+   "TERMS_OF_USE": "Terms of Use",
+   "CONTACT": "Contact",
+
+   "LAUNCH_SPORTS_ID": "Launch SportsID",
 }
