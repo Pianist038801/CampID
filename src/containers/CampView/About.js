@@ -22,14 +22,14 @@ class About extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={Fonts.h4}>Work with some of the top basketball coaches in the world. They are ready for you!</Text>
+        <Text style={Fonts.style.h4}>Work with some of the top basketball coaches in the world. They are ready for you!</Text>
         {CommonWidgets.renderSpacer(30)}
-        <Text style={Fonts.h0}>Camp Instructors</Text>
+        <Text style={Fonts.style.h3}>Camp Instructors</Text>
 
         <ScrollView>
-          <AboutCell key={0}/>
-          <AboutCell key={1}/>
-          <AboutCell key={2}/>
+          <AboutCell key={0} />
+          <AboutCell key={1} />
+          <AboutCell key={2} />
         </ScrollView>
       </View>
     );

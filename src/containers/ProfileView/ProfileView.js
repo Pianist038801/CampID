@@ -8,11 +8,9 @@ import {
 
 import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import I18n from 'react-native-i18n';
 import ImagePicker from 'react-native-image-picker';
 import ImageResizer from 'react-native-image-resizer';
-import { MKButton } from 'react-native-material-kit';
 
 import NavigationBar from 'react-native-navbar';
 
@@ -21,26 +19,22 @@ import { setAvatarUri } from '@actions/globals';
 import CommonWidgets from '@components/CommonWidgets';
 import ActionSheet from '@components/ActionSheet/';
 import { Metrics, Styles, Images, Colors, Fonts } from '@theme/';
-import Utils from '@src/utils';
 import Constants from '@src/constants';
-import styles from './styles';
 
 class ProfileView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Focus0: false,
-      Focus1: false,
-      Focus2: false,
-      Focus3: false,
-      Focus4: false,
-      Focus5: false,
+      athleteFocus: false,
+      coachFocus: false,
+      administratorFocus: false,
+      parentFocus: false,
     };
   }
 
   onBtnFocus(value) {
-    this.setState({ Focus0: false, Focus1: false, Focus2: false, Focus3: false, Focus4: false, Focus5: false });
-    this.setState({ [`Focus${value}`]: true });
+    this.setState({ administratorFocus: false, parentFocus: false, athleteFocus: false, coachFocus: false });
+    this.setState({ [`${value}Focus`]: true });
   }
 
   showActionSheetMenu() {
@@ -92,7 +86,7 @@ class ProfileView extends Component {
         });
     }
   }
-  /* source={Images.bkgLogin}*/
+
   render() {
     return (
       <KeyboardAwareScrollView
@@ -103,46 +97,45 @@ class ProfileView extends Component {
           {CommonWidgets.renderStatusBar('black')}
           <NavigationBar
             style={Styles.navBarStyle}
-            title={CommonWidgets.renderNavBarHeader('My Profile')}
+            title={CommonWidgets.renderNavBarHeader('Christina Smith')}
             tintColor={Colors.txtTitle}
             leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.replaceRoute('login'))} />
 
           <Image
             resizeMode={'stretch'}
             style={Styles.navbarFullScreen}
-            source={Images.registerExpBg}>
+            source={Images.registerDoneBg}>
 
-            {/* -----Avatar---- */}
-
-            <View style={{ flex: 26 }}>
-              {CommonWidgets.renderSpacer(168)}
-
-            </View>
+            <View style={{ flex: 26 }} />
             <View style={[{ flex: 25 }, Styles.center]}>
               {CommonWidgets.renderAvatar(this.props.globals.avatarUri, () => this.showActionSheetMenu())}
             </View>
-            <View style={{ flex: 14, flexDirection: 'column' }}>
-              <View style={[{ flex: 1, flexDirection: 'row' }, Styles.center]}>
-                {CommonWidgets.renderNormalButton('0-1', Utils.getNormalBtnBackcolor(this.state.Focus0), () => this.onBtnFocus('0'))}
-                {CommonWidgets.renderNormalButton('2-3', Utils.getNormalBtnBackcolor(this.state.Focus1), () => this.onBtnFocus('1'))}
-                {CommonWidgets.renderNormalButton('4-5', Utils.getNormalBtnBackcolor(this.state.Focus2), () => this.onBtnFocus('2'))}
-                {CommonWidgets.renderNormalButton('6-7', Utils.getNormalBtnBackcolor(this.state.Focus3), () => this.onBtnFocus('3'))}
-              </View>
-              <View style={[{ flex: 1, flexDirection: 'row' }, Styles.center]}>
-                {CommonWidgets.renderNormalButton('8-9', Utils.getNormalBtnBackcolor(this.state.Focus4), () => this.onBtnFocus('4'))}
-                {CommonWidgets.renderNormalButton('10+', Utils.getNormalBtnBackcolor(this.state.Focus5), () => this.onBtnFocus('5'))}
+            <View style={[{ flex: 0.1, marginTop: -Metrics._real(0) }, Styles.center]}>
+              {CommonWidgets.renderText({ ...Fonts.style.h4, ...Fonts.style.semibold }, 'Christina Smith')}
+              <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                {CommonWidgets.renderText({ ...Fonts.style.h5, ...Fonts.style.semibold }, 'HS Point Guard ')}
+                {CommonWidgets.renderText({ ...Fonts.style.h5, ...Fonts.style.regular }, '| Saint Francis (GA) #1')}
               </View>
             </View>
-            <View style={{ flex: 26 }} />
-            <View style={{ flex: 9, flexDirection: 'row' }}>
+            <View style={[{ flex: 18 }, Styles.center]}>
+              {CommonWidgets.renderMaterialButton(I18n.t('CONTINUE_TO_DASHBOARD'), Colors.brandPrimary, () => this.props.replaceRoute('home'))}
+            </View>
+            <View style={{ flex: 15 }}>
+              {CommonWidgets.renderSpacer(40)}
+              {CommonWidgets.renderTextWithMargin(Fonts.style.h3, 'Upgrade')}
+              {CommonWidgets.renderTextWithMargin({ ...Fonts.style.h5, ...Fonts.style.regular }, 'Lorem ipsum dolor sit arnet, consectetur adipiscing elit.lla empor feugiat elementumaecenas rhmale.')}
+            </View>
+            <View style={[{ flex: 18 }, Styles.center]}>
+              {CommonWidgets.renderMaterialButton(I18n.t('SUBSCRIBE_TO_CAMPID'), Colors.btnBlue)}
+            </View>
+            <View style={[{ flex: 6, flexDirection: 'row' }, Styles.center]}>
               <View style={{ flex: 1 }}>
-                {CommonWidgets.renderImgBtn(() => this.props.replaceRoute('registerSkill'), { left: Metrics.bottomBtnMargin }, Images.imgLeftBtn)}
+                {CommonWidgets.renderTextButton(I18n.t('NOT_YOUR_ACCOUNT'), Fonts.style.registerBottomBtn, () => Alert.alert('NOT'))}
               </View>
               <View style={{ flex: 1, alignItems: 'flex-end' }} >
-                {CommonWidgets.renderImgBtn(() => this.props.replaceRoute('registerDone'), { marginRight: Metrics.bottomBtnMargin }, Images.imgRightBtn)}
+                {CommonWidgets.renderTextButton(I18n.t('REPORT_ERRORS'), Fonts.style.reportErrBtn, () => Alert.alert('NOT'))}
               </View>
             </View>
-            <View style={{ flex: 5 }} />
           </Image>
           <ActionSheet
             ref={(as) => { this.ActionSheet = as; }}
@@ -159,7 +152,7 @@ class ProfileView extends Component {
 ProfileView.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   replaceRoute: React.PropTypes.func.isRequired,
-  popRoute: React.PropTypes.func.isRequired,
+  popRoute: React.PropTypes.func.isRequired
 };
 
 function mapDispatchToProps(dispatch) {
@@ -171,7 +164,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps( state ) {
   const globals = state.get('globals');
   return { globals };
 }

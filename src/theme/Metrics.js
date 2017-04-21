@@ -36,10 +36,15 @@ const metrics = {
   priceViewWidth: 70,
   listImgHeight: sHeight * (160 / 1136.0),
   rateBarWidth: 149,
+  screenInnerWidth: sWidth - dMargin,
+  rateBtnWidth: (sWidth - dMargin) / 10,
   rateBarHeight: 96,
   videoClipWidth: 200,
   videoClipHeight: 150,
+  aboutAvatarSize: 80,
+  reviewAvatarSize: 50,
   dashboardGap: 20,
+  scheduleTabMargin: 40,
 };
 
 export default metrics;

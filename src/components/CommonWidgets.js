@@ -86,16 +86,37 @@ const CommonWidgets = {
   },
   renderMaterialButton(text, color = Colors.brandPrimary, onPress, _width) {
     let _style;
-    if (_width === undefined)
-      {_style = Styles.button;}
-    else
-      {_style = [Styles.button, { width: _width }];}
+    if (_width === undefined) { _style = Styles.button; } else { _style = [Styles.button, { width: _width }]; }
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={_style} backgroundColor={color} borderRadius={7}>
           <Text style={Fonts.style.buttonText}>
             {text}
           </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  },
+  renderRateBtn(text, bClicked,  onPress, _width, _key) {
+    let _style;
+    var color = Colors.brandPrimary,
+      txtColor = 'white',
+      borderColor = Colors.brandPrimary;
+    if (bClicked === false) {
+      color = 'transparent';
+      txtColor = borderColor = Colors.rateBtnDisabled;
+    }
+
+    if (_width === undefined) { _style = Styles.button; } else { _style = [Styles.button, { width: _width - 5 }]; }
+    return (
+      <TouchableOpacity key={_key} onPress={onPress}>
+        <View style={Styles.rowContainer}>
+          <View style={_style} borderColor={borderColor} borderWidth={1} backgroundColor={color} borderRadius={7}>
+            <Text style={{ ...Fonts.style.buttonText, color: txtColor }}>
+              {text}
+            </Text>
+          </View>
+          <View style={{ width: 5 }} />
         </View>
       </TouchableOpacity>
     );
@@ -107,6 +128,22 @@ const CommonWidgets = {
         <Text style={[Fonts.style.hyperBottomText, _style]}>
           {text}
         </Text>
+      </TouchableOpacity>
+    );
+  },
+  renderRightButton(text, _style, onPress) {
+    return(
+      <TouchableOpacity onPress={onPress}>
+        <View style={Styles.center}>
+          <Text
+            style={[Fonts.style.h2,
+              { textAlign: 'right',
+                
+                color: Colors.textTitle }]}
+            numberOfLines={1}>
+            {text}
+          </Text>
+        </View>
       </TouchableOpacity>
     );
   },
@@ -168,7 +205,56 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
-
+  renderScheduleTabItem(title, bClicked = false, onPress) {
+    return (
+      bClicked === false ?
+      (
+        <TouchableOpacity onPress={onPress}>
+          <Text style={{ ...Fonts.style.h4, color: Colors.textPrimary, marginRight: Metrics.scheduleTabMargin }}>{title}</Text>
+        </TouchableOpacity>
+      )
+      :
+      (
+        <TouchableOpacity onPress={onPress}>
+          <View style={{ flexDirection: 'column', alignItems: 'center', flex: 1, marginRight: Metrics.scheduleTabMargin }}>
+            <Text style={{ ...Fonts.style.h4, color: Colors.brandPrimary }}>{title}</Text>
+            <Icon name={'sort-desc'} size={30} style={{ backgroundColor: 'transparent', marginTop: -20 }} color={Colors.brandPrimary} />
+          </View>
+        </TouchableOpacity>
+      )
+    );
+  },
+  renderScheduleItem(when, what) {
+    return (
+      <View>
+        <View style={Styles.rowContainer}>
+          <Text style={{ width: 150, ...Fonts.style.h4, color: Colors.textSecondary }}>
+            {when}
+          </Text>
+          <Text style={{ ...Fonts.style.h4, color: Colors.textSecondary }}>
+            {what}
+          </Text>
+        </View>
+        {CommonWidgets.renderSpacer(10)}
+      </View>
+    );
+  },
+  renderSizedAvatar(imgUri, onPress, size) {
+    let _src = { uri: imgUri };
+    if (!isNaN(imgUri)) { _src = imgUri; } // require('Avatar')1
+    return (
+      <TouchableOpacity onPress={onPress}>
+        <Image
+          style={{ width: size,
+            height: size,
+            borderRadius: size / 2,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          source={_src} />
+      </TouchableOpacity>
+    );
+  },
   renderNavBarLeftButton(onPress, icon = 'back') {
     let iconName = 'chevron-left';
     if (icon === 'menu') iconName = 'bars';
@@ -177,10 +263,10 @@ const CommonWidgets = {
       <TouchableOpacity
         style={{ paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
         onPress={onPress} >
-        {(isNaN(icon))?
-        <Icon name={iconName} size={30} color={Colors.textTitle} />
+        {(isNaN(icon)) ?
+          <Icon name={iconName} size={25} color={Colors.textTitle} />
         :
-        <Image style={{width: 20, height: 20, resizeMode: 'stretch'}} source={icon} />
+          <Image style={{ width: 20, height: 20, resizeMode: 'stretch' }} source={icon} />
         }
       </TouchableOpacity>
     );

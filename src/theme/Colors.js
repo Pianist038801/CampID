@@ -30,6 +30,8 @@ const colors = {
   ripplePrimary: '#E22F4D50',
   rippleSecondary: '#27C87D50',
   rippleThird: '#1E80C750',
+
+  rateBtnDisabled: 'rgb(187,185,185)',
 };
 
 export default colors;

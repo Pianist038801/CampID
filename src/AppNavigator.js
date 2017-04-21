@@ -18,6 +18,7 @@ import RegisterDone from '@containers/Authentication/RegisterDone';
 import ForgotPassword from '@containers/Authentication/ForgotPassword';
 import Home from '@containers/Home/Home';
 import CampView from '@containers/CampView/CampView';
+import CampRate from '@containers/CampView/CampRate';
 import SearchView from '@containers/SearchView/SearchView';
 import FilterView from '@containers/SearchView/FilterView';
 import ProfileView from '@containers/ProfileView/ProfileView';
@@ -94,11 +95,13 @@ class AppNavigator extends Component {
       case 'registerExp':
         return <RegisterExp navigator={navigator} {...route.passProps} />;
       case 'registerDone':
-        return <RegisterDone navigator={navigator} {...route.passProps} />; 
+        return <RegisterDone navigator={navigator} {...route.passProps} />;
       case 'forgotpwd':
         return <ForgotPassword navigator={navigator} {...route.passProps} />;
       case 'home':
         return <Home navigator={navigator} {...route.passProps} />;
+      case 'rateCamp':
+        return <CampRate navigator={navigator} {...route.passProps} />;
       case 'campView':
         return <CampView navigator={navigator} {...route.passProps} />;
       case 'searchView':

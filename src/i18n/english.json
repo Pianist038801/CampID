@@ -59,4 +59,14 @@
 
    "VIDEO": "Video",
    "SEARCH_RESULTS": "Search Results",
+   "MON": "Mon",
+   "TUE": "Tue",
+   "WED": "Wed",
+   "THU": "Thu",
+   "FRI": "Fri",
+   "SAT": "Sat",
+
+   "SUBMIT": "Submit",
+   "FILTER": "Filter",
+   "CLEAR": "Clear",
 }

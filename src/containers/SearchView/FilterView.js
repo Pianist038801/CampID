@@ -18,31 +18,29 @@ import SearchBar from 'react-native-searchbar';
 import SearchCell from '@components/SearchView/SearchCell';
 
 class FilterView extends Component {
+
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {CommonWidgets.renderStatusBar(Colors.brandPrimary) }
         <NavigationBar
           style={Styles.navBarStyle}
-          title={CommonWidgets.renderNavBarHeader(I18n.t('SEARCH_RESULTS'), () => this.searchBar.show())}
+          title={CommonWidgets.renderNavBarHeader(I18n.t('FILTER'))}
           tintColor={Colors.brandSecondary}
           leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
           rightButton={(<View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-              {CommonWidgets.renderNavBarLeftButton(null, Images.downArrow)}
+            {CommonWidgets.renderRightButton(I18n.t("CLEAR"), {color: Colors.textSecondary}, null)}
           </View>)}
            />
-        <View style={{ height: 60, justifyContent: 'center', backgroundColor: Colors.heavyBorder }}>
-          <Text style={{ ...Fonts.style.h4, color: Colors.textTitle, marginLeft: Metrics.defaultMargin / 2 }}> "Propspect Camps" - 42 Results</Text>
-        </View>
+         
       </View>
     );
-   }
+  }
 }
-
 
 FilterView.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
@@ -68,4 +66,5 @@ function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(FilterView);

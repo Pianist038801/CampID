@@ -11,7 +11,7 @@ export default StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
   },
-   
+
   image: {
     height: Metrics.listImgHeight,
     width: Metrics.listImgHeight,

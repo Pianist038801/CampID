@@ -48,7 +48,7 @@ class InfoView extends Component {
                   {this.props.rate}
                 </Text>
               </Image>
-              {CommonWidgets.renderTextButton(I18n.t('RATE_CAMP'), styles.rateCampBtn, () => Alert.alert('CAMP'))}
+              {CommonWidgets.renderTextButton(I18n.t('RATE_CAMP'), styles.rateCampBtn, this.props.onPress)}
             </View>
           </View>
         </View>

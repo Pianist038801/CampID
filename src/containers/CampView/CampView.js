@@ -17,6 +17,8 @@ import InfoView from '@components/CampViewItem/InfoView';
 import VideoView from '@components/CampViewItem/VideoView';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 import About from './About';
+import Schedule from './Schedule';
+import Reviews from './Reviews';
 
 class CampView extends Component {
   render() {
@@ -31,12 +33,12 @@ class CampView extends Component {
           rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.pushNewRoute('searchView'), 'search')} />
 
         <ScrollView>
-          <InfoView />
+          <InfoView onPress={() => this.props.pushNewRoute('rateCamp')} />
           <VideoView />
           <ScrollableTabView renderTabBar={() => <DefaultTabBar />}>
             <About tabLabel="ABOUT" />
-            <Text tabLabel="Tab #2">favorite</Text>
-            <Text tabLabel="Tab #3">project</Text>
+            <Schedule tabLabel="Schedule">favorite</Schedule>
+            <Reviews tabLabel="Reviews">project</Reviews>
           </ScrollableTabView>
         </ScrollView>
       </View>
@@ -66,4 +68,5 @@ function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(CampView);

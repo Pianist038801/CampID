@@ -6,6 +6,12 @@ import Colors from './Colors';
 
 
 const Styles = {
+  container: {
+    flex: 1,
+    width: Metrics.screenWidth,
+    paddingHorizontal: Metrics.bottomBtnMargin,
+    marginBottom: 0,
+  },
   rowContainer: {
     flexDirection: 'row',
   },
@@ -19,6 +25,20 @@ const Styles = {
   },
   textInputContainerStyle: {
     width: Metrics.buttonWidth,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 15,
+  },
+  multitextInputStyle: {
+    ...Fonts.style.textInput,
+    width: Metrics.buttonWidth,
+    height: Metrics._real(250),
+    alignSelf: 'center',
+    textAlign: 'left',
+    color: Colors.textPrimary,
+  },
+  multitextInputContainerStyle: {
+    width: Metrics.buttonWidth + Metrics.defaultMargin,
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 15,

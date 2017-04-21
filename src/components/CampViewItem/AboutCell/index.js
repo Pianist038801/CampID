@@ -14,11 +14,14 @@ class AboutCell extends Component {
   render() {
     return (
       <View style={[styles.container, Styles.rowContainer]}>
-        <Avatar source={{ uri: this.props.imgPath }} />
-        <View style={{ flex: 1 }}>
-          <Text style={Fonts.h4, { color: Colors.brandPrimary }}>{this.props.name}</Text>
-          <Text style={Fonts.h4, { color: Colors.textPrimary }}>{this.props.job}</Text>
-          <Text style={Fonts.h4, { color: Colors.textPrimary }}>{this.props.school}</Text>
+        <View style={Styles.center}>
+          {CommonWidgets.renderSizedAvatar(this.props.imgPath, null, Metrics.aboutAvatarSize)}
+        </View>
+        <View style={{ width: 20 }} />
+        <View style={{ flex: 1, justifyContent: 'center' }}>
+          <Text style={{ ...Fonts.style.h4, color: Colors.brandPrimary }}>{this.props.name}</Text>
+          <Text style={{ ...Fonts.style.h4, color: Colors.textPrimary }}>{this.props.job}</Text>
+          <Text style={{ ...Fonts.style.h4, color: Colors.textPrimary }}>{this.props.school}</Text>
         </View>
       </View>
     );
@@ -38,7 +41,6 @@ AboutCell.defaultProps = {
   job: "Head-Coach: Women's Basketball",
   school: 'Washington University',
 };
-
 
 function mapStateToProps(state) {
   const globals = state.get('globals');
