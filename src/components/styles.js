@@ -11,6 +11,15 @@ export default StyleSheet.create({
     borderWidth: Metrics.avatarSize / 8.0,
     justifyContent: 'center',
   },
+  smallAvatar: {
+    width: Metrics.smallAvatarSize,
+    height: Metrics.smallAvatarSize,
+    borderRadius: Metrics.smallAvatarSize / 2,
+    borderColor: Colors.brandPrimary,
+    alignItems: 'center',
+    borderWidth: Metrics.smallAvatarSize / 8.0,
+    justifyContent: 'center',
+  },
   listItemContainer: {
     flex: 1,
     alignItems: 'center',

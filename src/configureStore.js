@@ -22,7 +22,7 @@ function configureStore(initialState = fromJS({})) {
   const store = createStore(
     createReducer(),
     initialState,
-    compose(...enhancers)
+    compose(...enhancers),
   );
 
   // Extensions

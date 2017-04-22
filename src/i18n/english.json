@@ -80,4 +80,17 @@
    "CONTACT": "Contact",
 
    "LAUNCH_SPORTS_ID": "Launch SportsID",
+
+   "NAME": "Name",
+   "LEVEL": "Level",
+   "SCHOOL": "School",
+   "SPORTS": "Sports",
+   "NUMBERS": "Numbers",
+   "HEIGHT": "Height",
+   "WEIGHT": "Weight",
+   "LOCATION": "Location",
+
+   "ACCOUNT_TYPE": "Account Type",
+   "SKILL_LEVEL": "Skill Level",
+   
 }

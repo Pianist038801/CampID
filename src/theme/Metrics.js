@@ -46,6 +46,7 @@ const metrics = {
   dashboardGap: 20,
   scheduleTabMargin: 40,
   sidebarItemHeight: 65,
+  smallAvatarSize: Math.min(width * (150 / 640.0), height * (150 / 1136.0)),
 };
 
 export default metrics;

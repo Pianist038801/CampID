@@ -16,6 +16,11 @@ const images = {
   rateBar: require('@assets/images/rateBar.png'),
   downArrow: require('@assets/images/down_arrow.png'),
   sportsID: require('@assets/images/SPORTS_ID.png'),
+
+  pdf: require('@assets/images/pdf.png'),
+  calendar: require('@assets/images/calendar.png'),
+  person: require('@assets/images/person.png'),
+  card: require('@assets/images/card.png'),
 };
 
 export default images;

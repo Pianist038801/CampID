@@ -42,7 +42,7 @@ class CampRate extends Component {
       Focus7: false,
       Focus8: false,
       Focus9: false,
-    } 
+    };
   }
 
   onBtnFocus(value) {

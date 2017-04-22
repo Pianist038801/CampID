@@ -62,17 +62,26 @@ const CommonWidgets = {
     );
   },
 
-  renderNormalButton(text, color = Colors.brandPrimary, onPress) {
+  renderIconCaption(img,text) {
+    return(
+      <View style={Styles.rowContainer}>
+        
+      </View>
+    );
+  },
+
+  renderNormalButton(text, color = Colors.brandPrimary, onPress, textStyle = Fonts.style.buttonText) {
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={Styles.normalButton} backgroundColor={color} borderRadius={13}>
-          <Text style={Fonts.style.buttonText}>
+          <Text style={textStyle}>
             {text}
           </Text>
         </View>
       </TouchableOpacity>
     );
   },
+
   renderSmallButton(text, color = Colors.brandPrimary, onPress) {
     return (
       <TouchableOpacity onPress={onPress}>
@@ -84,6 +93,7 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
+
   renderMaterialButton(text, color = Colors.brandPrimary, onPress, _width) {
     let _style;
     if (_width === undefined) { _style = Styles.button; } else { _style = [Styles.button, { width: _width }]; }
@@ -97,6 +107,7 @@ const CommonWidgets = {
       </TouchableOpacity>
     );
   },
+
   renderRateBtn(text, bClicked, onPress, _width, _key) {
     let _style;
     let color = Colors.brandPrimary,
@@ -194,13 +205,18 @@ const CommonWidgets = {
     );
   },
 
-  renderAvatar(imgUri, onPress) {
+  renderAvatar(imgUri, onPress, small) {
     let _src = { uri: imgUri };
     if (!isNaN(imgUri)) { _src = imgUri; } // require('Avatar')1
+    let _style;
+    if (small === undefined)
+       _style = styles.imgAvatar;
+    else
+      _style = styles.smallAvatar;
     return (
       <TouchableOpacity onPress={onPress}>
         <Image
-          style={styles.imgAvatar}
+          style={_style}
           source={_src} />
       </TouchableOpacity>
     );

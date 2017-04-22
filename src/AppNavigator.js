@@ -22,6 +22,15 @@ import CampRate from '@containers/CampView/CampRate';
 import SearchView from '@containers/SearchView/SearchView';
 import FilterView from '@containers/SearchView/FilterView';
 import ProfileView from '@containers/ProfileView/ProfileView';
+import EditProfile from '@containers/MenuView/EditProfile';
+import CampHistory from '@containers/MenuView/CampHistory';
+import Forms from '@containers/MenuView/Forms';
+import Notifications from '@containers/MenuView/Notifications';
+import Settings from '@containers/MenuView/Settings';
+import PrivacyPolicy from '@containers/MenuView/PrivacyPolicy';
+import TermsOfUse from '@containers/MenuView/TermsOfUse';
+import Contact from '@containers/MenuView/Contact';
+import PaymentView from '@containers/PaymentView/PaymentView';
 
 Navigator.prototype.replaceWithAnimation = function (route) {
   const activeLength = this.state.presentedIndex + 1;
@@ -110,6 +119,24 @@ class AppNavigator extends Component {
         return <FilterView navigator={navigator}{...route.passProps} />;
       case 'profileView':
         return <ProfileView navigator={navigator}{...route.passProps} />;
+      case 'editProfile':
+        return <EditProfile navigator={navigator}{...route.passProps} />;
+      case 'campHistory':
+        return <CampHistory navigator={navigator}{...route.passProps} />;
+      case 'forms':
+        return <Forms navigator={navigator}{...route.passProps} />;
+      case 'notifications':
+        return <Notifications navigator={navigator}{...route.passProps} />;
+      case 'settings':
+        return <Settings navigator={navigator}{...route.passProps} />;
+      case 'privacyPolicy':
+        return <PrivacyPolicy navigator={navigator}{...route.passProps} />;
+      case 'termsOfUse':
+        return <TermsOfUse navigator={navigator}{...route.passProps} />;
+      case 'contact':
+        return <Contact navigator={navigator}{...route.passProps} />;
+      case 'paymentView':
+        return <PaymentView navigator={navigator}{...route.passProps} />;
       default :
         return <Login navigator={navigator} {...route.passProps} />;
     }
