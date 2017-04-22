@@ -8,6 +8,9 @@ import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import Utils from '@src/utils';
 import MapView from 'react-native-maps';
+import NavigationBar from 'react-native-navbar';
+import { replaceRoute, pushNewRoute, popRoute } from '@actions/route';
+import { openDrawer } from '@actions/drawer';
 
 class CampHistoryDetail extends Component {
   constructor(props) {
@@ -22,22 +25,27 @@ class CampHistoryDetail extends Component {
 
   render() {
     return (
-      <View>
+
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        {CommonWidgets.renderStatusBar(Colors.brandPrimary) }
+        <NavigationBar
+          style={Styles.navBarStyle}
+          title={CommonWidgets.renderNavBarHeader(I18n.t('CAMP_HISTORY_DETAIL'))}
+          tintColor={Colors.brandSecondary}
+          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
+          rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')} />
         {CommonWidgets.renderSpacer(18)}
-        <View style={styles.container} >
-          <TouchableOpacity>
-            <Image style={styles.listImg} source={Images.imgLoginLogo} />
-          </TouchableOpacity>
+
+        <View style={styles.container}>
+          <Image style={styles.listImg} source={Images.imgLoginLogo} />
           <View style={styles.rowContainer}>
-            <View style={styles.leftView}>           
+            <View style={styles.leftView}>
               <Text style={styles.descTitle}>
                 { this.props.txtTitle }
               </Text>
-
               <Text style={styles.descPeriod}>
                 { this.props.txtSubTitle }
               </Text>
-
               <Text style={styles.descSubTitle}>
                 { this.props.txtPeriod }
               </Text>
@@ -49,9 +57,21 @@ class CampHistoryDetail extends Component {
                   {this.props.rate}
                 </Text>
               </Image>
-              {CommonWidgets.renderTextButton(I18n.t('RATE_CAMP'), styles.rateCampBtn, this.props.onPress)}
             </View>
           </View>
+          {CommonWidgets.renderSpacer(20)}
+
+          { (this.props.isActive === true)
+              ?
+              (
+                <View style={styles.rowContainer} >
+                  <Text style={styles.activeCamp}>{I18n.t('THIS_CAMP_IS_STILL_ACTIVE:')}</Text>
+                  {CommonWidgets.renderTextButton(I18n.t('REGISTER_NOW'), styles.rateCampBtn, this.props.onPress)}
+                </View>
+              )
+              :
+              (<Text style={styles.inactiveCamp}>{I18n.t('THIS_CAMP_IS_NO_LONGER_ACTIVE')}</Text>)
+            }
         </View>
 
         {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
@@ -71,6 +91,7 @@ class CampHistoryDetail extends Component {
                 { this.props.txtAddress }
               </Text>
             </View>
+
             <View style={styles.middleGap} />
             <View style={styles.rightView}>
               <MapView
@@ -88,32 +109,20 @@ class CampHistoryDetail extends Component {
             </View>
           </View>
         </View>
-        {CommonWidgets.renderSpacer(2, Colors.textSecondary)}
-
+        {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
+        {CommonWidgets.renderSpacer(10)}
         <View style={styles.container} >
-          <View style={styles.rowContainer}>
-            <View style={[...styles.leftView, { flex: 1, flexDirection: 'row', alignItems: 'center' }]}>
-              <View style={styles.priceView}>
-                <Text style={styles.descPrice}>
-                  { this.props.txtPrice }
-                </Text>
-              </View>
-              <View style={styles.middleTextView}>
-                <Text style={[styles.university, { marginLeft: 20 }]}>
-                  { I18n.t('NOT_REGISTERED_FOR_THIS_CAMP') }
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.middleGap} />
-            <View style={styles.rightView}>
-              {CommonWidgets.renderMaterialButton(I18n.t('REGISTER'), Colors.brandPrimary, () => Alert.alert('ss'), Metrics.rateBarWidth)}
-            </View>
-          </View>
+          <Text style={styles.awardText}> {I18n.t('AWARDS')}</Text>
+        </View>
+        <View style={styles.container} >
+          <Text style={styles.txtAddress}> 2017 Camp highest scorer</Text>
+          {CommonWidgets.renderSpacer(10)}
+          <Text style={styles.txtAddress}> 2017 Ball handling skills champ</Text>
         </View>
 
-        {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
+
       </View>
+
     );
   }
 }
@@ -127,8 +136,9 @@ CampHistoryDetail.propTypes = {
 };
 
 CampHistoryDetail.defaultProps = {
+  isActive: false,
   txtTitle: "Women's Basketball",
-  txtSubTitle: 'All American Skills Development',
+  txtSubTitle: 'ADIDAS ABCD CAMP',
   txtPeriod: 'June 21-27th 2017',
   txtSchool: 'University of Connecticut - Storrs, CT',
   txtPrice: '$199',
@@ -138,9 +148,19 @@ CampHistoryDetail.defaultProps = {
   txtAddress: '2098 Hillside Rd, SSS, SSS 08232',
 };
 
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+    replaceRoute: route => dispatch(replaceRoute(route)),
+    pushNewRoute: route => dispatch(pushNewRoute(route)),
+    popRoute: () => dispatch(popRoute()),
+    openDrawer: () => dispatch(openDrawer()),
+
+  };
+}
 function mapStateToProps(state) {
   const globals = state.get('globals');
   return { globals };
 }
 
-export default connect(mapStateToProps, null)(CampHistoryDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(CampHistoryDetail);

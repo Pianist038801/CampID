@@ -29,10 +29,7 @@ class CampHistory extends Component {
           rightButton={CommonWidgets.renderNavBarLeftButton(() => {}, 'menu')} />
 
         <ScrollView>
-
-          {/*<CampHistoryCell onPress={() => this.props.pushNewRoute('campHistoryDetail')} />
           <CampHistoryCell onPress={() => this.props.pushNewRoute('campHistoryDetail')} />
-          <CampHistoryCell onPress={() => this.props.pushNewRoute('campHistoryDetail')} />*/}
         </ScrollView>
       </View>
     );

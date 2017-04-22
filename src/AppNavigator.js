@@ -22,8 +22,7 @@ import CampRate from '@containers/CampView/CampRate';
 import SearchView from '@containers/SearchView/SearchView';
 import FilterView from '@containers/SearchView/FilterView';
 import ProfileView from '@containers/ProfileView/ProfileView';
-import EditProfile from '@containers/MenuView/EditProfile';
-import CampHistory from '@containers/MenuView/CampHistory';
+import EditProfile from '@containers/MenuView/EditProfile/EditProfile';
 import Forms from '@containers/MenuView/Forms';
 import Notifications from '@containers/MenuView/Notifications';
 import Settings from '@containers/MenuView/Settings';
@@ -31,7 +30,8 @@ import PrivacyPolicy from '@containers/MenuView/PrivacyPolicy';
 import TermsOfUse from '@containers/MenuView/TermsOfUse';
 import Contact from '@containers/MenuView/Contact';
 import PaymentView from '@containers/PaymentView/PaymentView';
-import CampHistoryDetail from '@containers/MenuView/CampHistoryDetail';
+import CampHistoryDetail from '@containers/MenuView/CampHistory/CampHistoryDetail';
+import CampHistory from '@containers/MenuView/CampHistory/CampHistory';
 
 Navigator.prototype.replaceWithAnimation = function (route) {
   const activeLength = this.state.presentedIndex + 1;
@@ -92,6 +92,7 @@ class AppNavigator extends Component {
       this.props.closeDrawer();
     }
   }
+
   renderScene(route, navigator) {
     switch (route.id) {
       case 'splash':
@@ -191,6 +192,7 @@ class AppNavigator extends Component {
     );
   }
 }
+
 AppNavigator.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
   popRoute: React.PropTypes.func.isRequired,

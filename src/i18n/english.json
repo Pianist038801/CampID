@@ -106,4 +106,10 @@
 
    "CURRENTLY_ACTIVE": "Currently Active",
    "NOT_ACTIVE": "Not Active",
+
+   "CAMP_HISTORY_DETAIL": "Camp History: Detail",
+   "THIS_CAMP_IS_STILL_ACTIVE:": "This camp is still active: ",
+   "REGISTER_NOW": "Register now",
+   "THIS_CAMP_IS_NO_LONGER_ACTIVE": "This camp is no longer active",
+   "AWARDS": "Awards",
 }
