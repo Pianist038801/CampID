@@ -38,12 +38,7 @@ class Schedule extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {CommonWidgets.renderStatusBar(Colors.brandPrimary) }
-        <NavigationBar
-          style={Styles.navBarStyle}
-          title={CommonWidgets.renderNavBarHeader(I18n.t('CAMPID_DASHBOARD'))}
-          tintColor={Colors.brandSecondary}
-          leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')}
-          rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.replaceRoute('login'), 'search')} />
+       
         <View style={Styles.container}>
           <View style={Styles.rowContainer}>
             { CommonWidgets.renderScheduleTabItem(I18n.t('MON'), this.state.Focus0, () => this.onBtnFocus('0')) }

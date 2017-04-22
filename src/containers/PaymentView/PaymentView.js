@@ -11,7 +11,10 @@ import { Styles, Metrics, Images, Colors, Fonts } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import Utils from '@src/utils';
-
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import CreditCard from './CreditCard';
+import PayPal from './PayPal';
+import ApplyPay from './ApplyPay';
 import { Avatar } from 'react-native-elements';
 
 class PaymentView extends Component {
@@ -40,17 +43,17 @@ class PaymentView extends Component {
             tintColor={Colors.txtTitle}
             leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())} />
 
-          <View style={[styles.container, Styles.rowContainer, { height: Metrics._real(260) }]}>
+          <View style={[styles.container, Styles.rowContainer, { height: Metrics._real(180) }]}>
             <View style={Styles.center}>
               <Image style={styles.image} source={{ uri: this.props.imgPath }} />
             </View>
             <View style={{ flex: 1, justifyContent: 'center' }}>
               <Text style={[Fonts.style.h5, { color: Colors.textSecondary }]}>{this.props.club}</Text>
-              {CommonWidgets.renderSpacer(3)}
+              {CommonWidgets.renderSpacer(1)}
               <Text style={[Fonts.style.h5, { color: Colors.brandPrimary }]}>{this.props.name}</Text>
-              {CommonWidgets.renderSpacer(3)}
+              {CommonWidgets.renderSpacer(1)}
               <Text style={[Fonts.style.h5, { color: Colors.textPrimary }]}>{this.props.period}</Text>
-              {CommonWidgets.renderSpacer(3)}
+              {CommonWidgets.renderSpacer(1)}
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Text style={styles.rateText}>
                   {this.props.price}
@@ -58,8 +61,23 @@ class PaymentView extends Component {
               </View>
             </View>
           </View>
+          <View style={[styles.container, Styles.rowContainer, { alignItems: 'center', justifyContent: 'space-between', height: Metrics._real(80) }]}>
+            {CommonWidgets.renderIconLabel(Images.pdf, I18n.t('DOWNLOAD_REGISTRATION_FORM'))}
+            {CommonWidgets.renderNormalButton('Upload', Colors.brandPrimary, null)}
+          </View>
           {CommonWidgets.renderSpacer(6, Colors.textSecondary)}
-          <View style={{ flex: 1 }} />
+          <View style={{ flex: 1 }} >
+            <ScrollableTabView
+              renderTabBar={() => <DefaultTabBar />}
+              tabBarActiveTextColor={Colors.brandPrimary}
+              tabBarInactiveTextColor={Colors.textSecondary}
+              tabBarUnderlineStyle={{ backgroundColor: Colors.brandPrimary }}>
+              <CreditCard tabLabel={I18n.t('CREDIT_CARD')} />
+              <PayPal tabLabel={I18n.t('PAYPAL')} />
+              <ApplyPay tabLabel={I18n.t('APPLY_PAY')} />
+
+            </ScrollableTabView>
+          </View>
         </View>
       </KeyboardAwareScrollView>
     );

@@ -31,6 +31,7 @@ import PrivacyPolicy from '@containers/MenuView/PrivacyPolicy';
 import TermsOfUse from '@containers/MenuView/TermsOfUse';
 import Contact from '@containers/MenuView/Contact';
 import PaymentView from '@containers/PaymentView/PaymentView';
+import CampHistoryDetail from '@containers/MenuView/CampHistoryDetail';
 
 Navigator.prototype.replaceWithAnimation = function (route) {
   const activeLength = this.state.presentedIndex + 1;
@@ -123,6 +124,8 @@ class AppNavigator extends Component {
         return <EditProfile navigator={navigator}{...route.passProps} />;
       case 'campHistory':
         return <CampHistory navigator={navigator}{...route.passProps} />;
+      case 'campHistoryDetail':
+        return <CampHistoryDetail navigator={navigator}{...route.passProps} />;
       case 'forms':
         return <Forms navigator={navigator}{...route.passProps} />;
       case 'notifications':

@@ -15,6 +15,7 @@ const colors = {
   textBlue: 'rgb(16,66,203)',
   textTitle: '#FFFFFF',
   fieldPlaceholder: '#999999',
+  textRed: 'rgb(240, 133, 52)',
 
   backgroundPrimary: '#F0F3EA',
   backgroundSecondary: '#FFFFFF',

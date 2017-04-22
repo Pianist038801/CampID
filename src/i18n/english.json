@@ -93,4 +93,17 @@
    "ACCOUNT_TYPE": "Account Type",
    "SKILL_LEVEL": "Skill Level",
    
+   "DOWNLOAD_REGISTRATION_FORM": "Download Registration Form",
+
+   "CREDIT_CARD": "Credit card",
+   "PAYPAL": "Paypal",
+   "APPLY_PAY": "Apply Pay",
+   "CARD_HOLDER_NAME": "Card Holder Name",
+   "CARD_NUMBER": "Card Number", 
+   "EXP": "Exp",
+   "ZIP_CODE": "Zip Code",
+   "CVV": "CVV",
+
+   "CURRENTLY_ACTIVE": "Currently Active",
+   "NOT_ACTIVE": "Not Active",
 }

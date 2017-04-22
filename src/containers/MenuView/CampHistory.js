@@ -14,6 +14,7 @@ import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import DashboardItem from '@components/DashboardItem';
+import CampHistoryCell from '@components/MenuView/CampHistoryCell';
 
 class CampHistory extends Component {
   render() {
@@ -25,17 +26,13 @@ class CampHistory extends Component {
           title={CommonWidgets.renderNavBarHeader(I18n.t('CAMP_HISTORY'))}
           tintColor={Colors.brandSecondary}
           leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
-          rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.pushNewRoute('searchView'), 'search')} />
+          rightButton={CommonWidgets.renderNavBarLeftButton(() => {}, 'menu')} />
 
         <ScrollView>
-          {CommonWidgets.renderListHeader('Camp Spotlight', Colors.brandSecondary, Colors.textPrimary)}
-          <ScrollView horizontal >
-            <DashboardItem txtSchool="" txtPrice="" />
-            <DashboardItem txtSchool="" txtPrice="" />
-          </ScrollView>
-          {CommonWidgets.renderListHeader('Camps For You', Colors.brandPrimary, Colors.brandSecondary)}
-          <DashboardItem />
-          <DashboardItem /> 
+
+          {/*<CampHistoryCell onPress={() => this.props.pushNewRoute('campHistoryDetail')} />
+          <CampHistoryCell onPress={() => this.props.pushNewRoute('campHistoryDetail')} />
+          <CampHistoryCell onPress={() => this.props.pushNewRoute('campHistoryDetail')} />*/}
         </ScrollView>
       </View>
     );

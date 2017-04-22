@@ -15,6 +15,7 @@ const Styles = {
   rowContainer: {
     flexDirection: 'row',
   },
+
   textInputStyle: {
     ...Fonts.style.textInput,
     width: Metrics.buttonWidth - Metrics.defaultMargin,
@@ -23,12 +24,32 @@ const Styles = {
     textAlign: 'left',
     color: Colors.textPrimary,
   },
+
   textInputContainerStyle: {
     width: Metrics.buttonWidth,
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 15,
   },
+
+  paymentTextInputStyle: {
+    fontFamily: Fonts.type.regular,
+    fontSize: Fonts.size.h4,
+    backgroundColor: 'transparent',
+    height: Metrics.textHeight,
+    flex: 1,
+    marginLeft: 20,
+    textAlign: 'left',
+    color: Colors.textPrimary,
+  },
+
+  paymentTextInputContainerStyle: {
+    borderWidth: 0,
+    borderBottomWidth: 1,
+    borderRadius: 5,
+    flexDirection: 'row',
+  },
+
   multitextInputStyle: {
     ...Fonts.style.textInput,
     width: Metrics.buttonWidth,
@@ -37,12 +58,14 @@ const Styles = {
     textAlign: 'left',
     color: Colors.textPrimary,
   },
+
   multitextInputContainerStyle: {
     width: Metrics.buttonWidth + Metrics.defaultMargin,
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 15,
   },
+
   smallButton: {
     height: Metrics.buttonHeight * 2 / 3,
     paddingHorizontal: 25,

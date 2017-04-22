@@ -62,11 +62,16 @@ const CommonWidgets = {
     );
   },
 
-  renderIconCaption(img,text) {
-    return(
-      <View style={Styles.rowContainer}>
-        
-      </View>
+  renderIconLabel(imgPath = Images.pdf, text, onPress) {
+    let _src = { uri: imgPath };
+    if (!isNaN(imgPath)) { _src = imgPath; } // require('Avatar')
+    return (
+      <TouchableOpacity onPress={onPress}>
+        <View style={Styles.rowContainer}>
+          <Image style={{ resizeMode: 'stretch' }} source={imgPath} />
+          <Text style={{ ...Fonts.style.h4, color: Colors.brandPrimary }}>{text}</Text>
+        </View>
+      </TouchableOpacity>
     );
   },
 
@@ -210,9 +215,9 @@ const CommonWidgets = {
     if (!isNaN(imgUri)) { _src = imgUri; } // require('Avatar')1
     let _style;
     if (small === undefined)
-       _style = styles.imgAvatar;
+      {_style = styles.imgAvatar;}
     else
-      _style = styles.smallAvatar;
+      {_style = styles.smallAvatar;}
     return (
       <TouchableOpacity onPress={onPress}>
         <Image
@@ -295,12 +300,14 @@ const CommonWidgets = {
   },
 
   renderNavBarLeftButton(onPress, icon = 'back') {
-    let iconName = 'chevron-left';
+    let iconName = icon;
+    if (icon === 'back') iconName = 'chevron-left';
     if (icon === 'menu') iconName = 'bars';
     if (icon === 'search') iconName = 'search';
+
     return (
       <TouchableOpacity
-        style={{ paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
+        style={ {paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
         onPress={onPress} >
         {(isNaN(icon)) ?
           <Icon name={iconName} size={25} color={Colors.textTitle} />
@@ -311,13 +318,13 @@ const CommonWidgets = {
     );
   },
 
-  renderIcon(onPress, icon = 'back') {
+  renderIcon(onPress, icon = 'chevron-circle-right') {
     const iconName = 'chevron-circle-right';
     return (
       <TouchableOpacity
         style={{ paddingBottom: Platform.OS === 'android' ? 5 : 5 }}
         onPress={onPress} >
-        <Icon name={iconName} size={30} color={Colors.brandPrimary} />
+        <Icon name={icon} size={30} color={Colors.brandPrimary} />
       </TouchableOpacity>
     );
   },
@@ -329,7 +336,6 @@ const CommonWidgets = {
         <Text style={[{ color: Colors.brandPrimary }, Fonts.style.h4]}>
           {caption}
         </Text>
-
       </TouchableOpacity>
     );
   },
