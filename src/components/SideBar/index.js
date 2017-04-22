@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { closeDrawer } from '@actions/drawer';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import { setSpinnerVisible } from '@actions/globals';
 import { replaceRoute, popRoute, pushNewRoute } from '@actions/route';
 import { Metrics, Styles, Colors, Fonts, Icon, Images } from '@theme/';
@@ -18,6 +18,7 @@ class SideBar extends Component {
           {CommonWidgets.renderTextButton('Christina Smith', styles.itemText, null)}
           {CommonWidgets.renderTextButton('Logged into CampID', styles.itemText, null)}
         </View>
+        <ScrollView>
         <View style={[styles.itemBar, { alignItems: 'center', flexDirection: 'row', backgroundColor: 'rgb(47,47,47)' }]}>
           <View style={{ flex: 1 }}>
             <Image style={styles.sportsIDLogo} source={Images.sportsID} />
@@ -53,6 +54,10 @@ class SideBar extends Component {
         <View style={styles.itemBar}>
           {CommonWidgets.renderTextButton('Payment', styles.itemText, () => { this.props.closeDrawer(); this.props.pushNewRoute('paymentView'); })}
         </View>
+        <View style={styles.itemBar}>
+          {CommonWidgets.renderTextButton('documentUpload', styles.itemText, () => { this.props.closeDrawer(); this.props.pushNewRoute('documentUpload'); })}
+        </View>
+        </ScrollView>
       </View>
     );
   }

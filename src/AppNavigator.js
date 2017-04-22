@@ -32,6 +32,7 @@ import Contact from '@containers/MenuView/Contact';
 import PaymentView from '@containers/PaymentView/PaymentView';
 import CampHistoryDetail from '@containers/MenuView/CampHistory/CampHistoryDetail';
 import CampHistory from '@containers/MenuView/CampHistory/CampHistory';
+import DocumentUpload from '@containers/MenuView/DocumentUpload/DocumentUpload';
 
 Navigator.prototype.replaceWithAnimation = function (route) {
   const activeLength = this.state.presentedIndex + 1;
@@ -141,6 +142,8 @@ class AppNavigator extends Component {
         return <Contact navigator={navigator}{...route.passProps} />;
       case 'paymentView':
         return <PaymentView navigator={navigator}{...route.passProps} />;
+      case 'documentUpload':
+        return <DocumentUpload navigator={navigator}{...route.passProps} />;
       default :
         return <Login navigator={navigator} {...route.passProps} />;
     }
