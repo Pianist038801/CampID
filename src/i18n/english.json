@@ -114,4 +114,14 @@
    "AWARDS": "Awards",
 
    "DOCUMENT_UPLOADS": "Document Uploads",
+   
+   "CHANGE_PASSWORD": "Change password",
+   "EMAIL_ADDRESS": "Email Address",
+   "PRIVACY_SETTINGS": "Privacy Settings",
+   
+   "WHO_CAN_VIEW_YOUR_PROFILE": "Who can view your profile?",
+   "WHO_CAN_SEE_YOU_ATTEND_A_CAMP": "Who can see you attended a camp?",  
+   "WHO_CAN_CONTACT_YOU": "Who can contact you?",
+   "EVERYONE": "Everyone",
+   "ONLY_MY_FRIENDS": "Only my friends",
 }

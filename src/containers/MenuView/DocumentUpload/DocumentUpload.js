@@ -1,4 +1,4 @@
-import { Text, View, Platform, Image, ScrollView, ListView} from 'react-native';
+import { Text, View, Platform, Image, ScrollView, ListView } from 'react-native';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
@@ -16,33 +16,32 @@ import CommonWidgets from '@components/CommonWidgets';
 import DashboardItem from '@components/DashboardItem';
 import Utils from '@src/utils';
 
-var documents = {
-  "Medical": ['2017 medical release', '2016 medical release'],
-  "Insurance": ['Medical Insurance', 'Camp Insurance' ],
-  "CampRegistrations": ["2017 5-star Women's Basketball", '2016 Lacrosse Skills Development', '2016 Bill Handling & Defence', 
-  '2015 University of Maryland - Lacrosse Camp']
-}
+const documents = {
+  Medical: ['2017 medical release', '2016 medical release'],
+  Insurance: ['Medical Insurance', 'Camp Insurance'],
+  CampRegistrations: ["2017 5-star Women's Basketball", '2016 Lacrosse Skills Development', '2016 Bill Handling & Defence',
+    '2015 University of Maryland - Lacrosse Camp'],
+};
 
 class DocumentUpload extends Component {
 
   constructor(props) {
-
     super(props);
-    var dataSource = new ListView.DataSource({
-        rowHasChanged: (r1, r2) => r1 !== r2,
-        sectionHeaderHasChanged: (s1, s2) => s1 !== s2
-      });
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+    });
     this.state = {
-      dataSource: dataSource.cloneWithRowsAndSections(documents)
-    }; 
+      dataSource: dataSource.cloneWithRowsAndSections(documents),
+    };
   }
 
   renderRow(rowItem) {
     return (
       <Text style={styles.smallText}>
-          {rowItem}
-      </Text>  
-    )
+        {rowItem}
+      </Text>
+    );
   }
 
   renderSectionHeader(sectionData, category) {
@@ -50,7 +49,7 @@ class DocumentUpload extends Component {
       <Text style={styles.bigText}>
         {category}
       </Text>
-    )
+    );
   }
 
   render() {
@@ -64,7 +63,7 @@ class DocumentUpload extends Component {
           leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
           rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')} />
         {CommonWidgets.renderSpacer(30)}
-        
+
         <View style={styles.container}>
           <ListView
             dataSource={this.state.dataSource}

@@ -1,4 +1,4 @@
-import { Text, View, Platform, Image, ScrollView } from 'react-native';
+import { Text, View, Platform, Image, ScrollView, ListView } from 'react-native';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
@@ -10,33 +10,66 @@ import { openDrawer } from '@actions/drawer';
 import { replaceRoute, pushNewRoute, popRoute } from '@actions/route';
 
 import Constants from '@src/constants';
-import { Metrics, Styles, Colors, Fonts, Icon } from '@theme/';
+import { Metrics, Styles, Colors, Fonts, Icon, Images } from '@theme/';
 import styles from './styles';
 import CommonWidgets from '@components/CommonWidgets';
 import DashboardItem from '@components/DashboardItem';
+import Utils from '@src/utils';
+
+const documents = {
+  Medical: ['2017 medical release', '2016 medical release'],
+  Insurance: ['Medical Insurance', 'Camp Insurance'],
+  CampRegistrations: ["2017 5-star Women's Basketball", '2016 Lacrosse Skills Development', '2016 Bill Handling & Defence',
+    '2015 University of Maryland - Lacrosse Camp'],
+};
 
 class Notifications extends Component {
+
+  constructor(props) {
+    super(props);
+    const dataSource = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+      sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+    });
+    this.state = {
+      dataSource: dataSource.cloneWithRowsAndSections(documents),
+    };
+  }
+
+  renderRow(rowItem) {
+    return (
+      <Text style={styles.smallText}>
+        {rowItem}
+      </Text>
+    );
+  }
+
+  renderSectionHeader(sectionData, category) {
+    return (
+      <Text style={styles.bigText}>
+        {category}
+      </Text>
+    );
+  }
+
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {CommonWidgets.renderStatusBar(Colors.brandPrimary) }
         <NavigationBar
           style={Styles.navBarStyle}
-          title={CommonWidgets.renderNavBarHeader(I18n.t('NOTIFICATIONS'))}
+          title={CommonWidgets.renderNavBarHeader(I18n.t('DOCUMENT_UPLOADS'))}
           tintColor={Colors.brandSecondary}
           leftButton={CommonWidgets.renderNavBarLeftButton(() => this.props.popRoute())}
-          rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.pushNewRoute('searchView'), 'search')} />
-
-        <ScrollView>
-          {CommonWidgets.renderListHeader('Camp Spotlight', Colors.brandSecondary, Colors.textPrimary)}
-          <ScrollView horizontal >
-            <DashboardItem txtSchool="" txtPrice="" />
-            <DashboardItem txtSchool="" txtPrice="" />
-          </ScrollView>
-          {CommonWidgets.renderListHeader('Camps For You', Colors.brandPrimary, Colors.brandSecondary)}
-          <DashboardItem />
-          <DashboardItem /> 
-        </ScrollView>
+          rightButton={CommonWidgets.renderNavBarLeftButton(() => this.props.openDrawer(), 'menu')} />
+        {CommonWidgets.renderSpacer(30)}
+        <View style={styles.container}>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={this.renderRow}
+            renderSectionHeader={this.renderSectionHeader}
+          />
+        </View>
       </View>
     );
   }
