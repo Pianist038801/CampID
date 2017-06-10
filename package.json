@@ -7,13 +7,18 @@
     "test": "jest"
   },
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "debounce": "^1.0.0",
     "immutable": "^3.8.1",
     "react": "16.0.0-alpha.6",
+    "react-cloud-vision-api": "^0.3.0",
     "react-native": "0.43.2",
+    "react-native-asset-library-to-base64": "^1.0.1",
+    "react-native-cache-image": "^1.0.0",
     "react-native-collapsible": "^0.8.0",
     "react-native-drawer": "^2.3.0",
     "react-native-elements": "^0.10.3",
+    "react-native-fs": "^2.3.3",
     "react-native-i18n": "^1.0.0",
     "react-native-image-picker": "^0.26.2",
     "react-native-image-resizer": "^0.1.0",
@@ -33,7 +38,8 @@
     "reduxsauce": "^0.4.1",
     "remote-redux-devtools": "^0.5.7",
     "seamless-immutable": "^7.1.2",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "url-parse": "^1.1.9"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

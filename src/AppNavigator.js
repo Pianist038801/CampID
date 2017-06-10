@@ -8,31 +8,7 @@ import { closeDrawer } from './actions/drawer';
 
 import { Colors } from '@theme/';
 
-import SideBar from '@components/SideBar';
-import Splash from '@containers/Splash';
-import Login from '@containers/Authentication/Login';
 import Register from '@containers/Authentication/Register';
-import RegisterSkill from '@containers/Authentication/RegisterSkill';
-import RegisterExp from '@containers/Authentication/RegisterExp';
-import RegisterDone from '@containers/Authentication/RegisterDone';
-import ForgotPassword from '@containers/Authentication/ForgotPassword';
-import Home from '@containers/Home/Home';
-import CampView from '@containers/CampView/CampView';
-import CampRate from '@containers/CampView/CampRate';
-import SearchView from '@containers/SearchView/SearchView';
-import FilterView from '@containers/SearchView/FilterView';
-import ProfileView from '@containers/ProfileView/ProfileView';
-import EditProfile from '@containers/MenuView/EditProfile/EditProfile';
-import Forms from '@containers/MenuView/Forms';
-import Notifications from '@containers/MenuView/Notifications/Notifications';
-import Settings from '@containers/MenuView/Settings/Settings';
-import PrivacyPolicy from '@containers/MenuView/PrivacyPolicy';
-import TermsOfUse from '@containers/MenuView/TermsOfUse';
-import Contact from '@containers/MenuView/Contact/Contact';
-import PaymentView from '@containers/PaymentView/PaymentView';
-import CampHistoryDetail from '@containers/MenuView/CampHistory/CampHistoryDetail';
-import CampHistory from '@containers/MenuView/CampHistory/CampHistory';
-import DocumentUpload from '@containers/MenuView/DocumentUpload/DocumentUpload';
 
 Navigator.prototype.replaceWithAnimation = function (route) {
   const activeLength = this.state.presentedIndex + 1;
@@ -96,89 +72,14 @@ class AppNavigator extends Component {
 
   renderScene(route, navigator) {
     switch (route.id) {
-      case 'splash':
-        return <Splash navigator={navigator} {...route.passProps} />;
+ 
       case 'login':
-        return <Login navigator={navigator} {...route.passProps} />;
-      case 'register':
         return <Register navigator={navigator} {...route.passProps} />;
-      case 'registerSkill':
-        return <RegisterSkill navigator={navigator} {...route.passProps} />;
-      case 'registerExp':
-        return <RegisterExp navigator={navigator} {...route.passProps} />;
-      case 'registerDone':
-        return <RegisterDone navigator={navigator} {...route.passProps} />;
-      case 'forgotpwd':
-        return <ForgotPassword navigator={navigator} {...route.passProps} />;
-      case 'home':
-        return <Home navigator={navigator} {...route.passProps} />;
-      case 'rateCamp':
-        return <CampRate navigator={navigator} {...route.passProps} />;
-      case 'campView':
-        return <CampView navigator={navigator} {...route.passProps} />;
-      case 'searchView':
-        return <SearchView navigator={navigator}{...route.passProps} />;
-      case 'filterView':
-        return <FilterView navigator={navigator}{...route.passProps} />;
-      case 'profileView':
-        return <ProfileView navigator={navigator}{...route.passProps} />;
-      case 'editProfile':
-        return <EditProfile navigator={navigator}{...route.passProps} />;
-      case 'campHistory':
-        return <CampHistory navigator={navigator}{...route.passProps} />;
-      case 'campHistoryDetail':
-        return <CampHistoryDetail navigator={navigator}{...route.passProps} />;
-      case 'forms':
-        return <Forms navigator={navigator}{...route.passProps} />;
-      case 'notifications':
-        return <Notifications navigator={navigator}{...route.passProps} />;
-      case 'settings':
-        return <Settings navigator={navigator}{...route.passProps} />;
-      case 'privacyPolicy':
-        return <PrivacyPolicy navigator={navigator}{...route.passProps} />;
-      case 'termsOfUse':
-        return <TermsOfUse navigator={navigator}{...route.passProps} />;
-      case 'contact':
-        return <Contact navigator={navigator}{...route.passProps} />;
-      case 'paymentView':
-        return <PaymentView navigator={navigator}{...route.passProps} />;
-      case 'documentUpload':
-        return <DocumentUpload navigator={navigator}{...route.passProps} />;
-      default :
-        return <Login navigator={navigator} {...route.passProps} />;
     }
   }
 
   render() {
     return (
-      <Drawer
-        ref={(ref) => { this._drawer = ref; }}
-        type="overlay"
-        tweenDuration={150}
-        content={<SideBar navigator={this._navigator} />}
-        tapToClose
-        acceptPan={false}
-        onClose={() => this.closeDrawer()}
-        openDrawerOffset={0.2}
-        panCloseMask={0.2}
-        styles={{
-          drawer: {
-            shadowColor: '#000000',
-            shadowOpacity: 0.8,
-            shadowRadius: 3,
-          },
-        }}
-        tweenHandler={(ratio) => {  //eslint-disable-line
-          return {
-            drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
-            main: {
-              opacity: (2 - ratio) / 2,
-            },
-          };
-        }}
-        negotiatePan
-      >
-
         <Navigator
           ref={(ref) => { this._navigator = ref; }}
           configureScene={(route) => {
@@ -189,9 +90,8 @@ class AppNavigator extends Component {
             else if (id === 'login') return Navigator.SceneConfigs.PushFromRight;
             return Navigator.SceneConfigs.PushFromRight;
           }}
-          initialRoute={{ id: (Platform.OS === 'android') ? 'splash' : 'splash' }}
+          initialRoute={{ id: (Platform.OS === 'android') ? 'login' : 'login' }}
           renderScene={this.renderScene.bind(this)} />
-      </Drawer>
     );
   }
 }

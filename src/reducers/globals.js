@@ -5,7 +5,7 @@ import Types from '@actions/actionTypes';
 export const initialState = Immutable({
   homeTab: 'AN10NA',
   spinnerVisible: false,
-  avatarUri: 3,
+  avatarUri: 'https://facebook.github.io/react/img/logo_og.png',
 });
 const homeTab = (state, action) => ({
   ...state,
@@ -19,6 +19,7 @@ const setAvatarUri = (state, action) => ({
   ...state,
   avatarUri: action.avatarUri,
 });
+
 const actionHandlers = {
   [Types.SET_HOME_TAB]: homeTab,
   [Types.SET_SPINNER_VISIBLE]: spinnerVisible,
